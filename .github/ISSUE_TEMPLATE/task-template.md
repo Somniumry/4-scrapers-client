@@ -13,7 +13,7 @@ Assignee : [이름]
 
 Task Category : [해당 milestone 이름]
 
-Task Descreption : [작업 상세 내용]
+Task Description : [작업 상세 내용]
 
 Date : [작업일]
 

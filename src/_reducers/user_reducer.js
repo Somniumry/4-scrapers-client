@@ -1,4 +1,4 @@
-import { USER_SIGNIN, USER_SIGNUP, USER_SIGNOUT } from '../_actions/user_action';
+import { USER_SIGNIN, USER_SIGNUP, USER_SIGNOUT } from '../_actions/types';
 
 const initialState = {};
 

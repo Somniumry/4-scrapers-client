@@ -4,14 +4,14 @@ import App from './components/App';
 import reportWebVitals from './reportWebVitals';
 import { applyMiddleware, createStore } from "redux";
 import { Provider } from 'react-redux';
-import ReactThunk from 'react-thunk';
-import ReactPromise from 'react-promise';
+import promiseMiddleware from "redux-promise";
+import ReduxThunk from "redux-thunk";
 import { BrowserRouter } from 'react-router-dom';
 import Reducer from './_reducers';
 
 const createStoreWithMiddleware = applyMiddleware(
-  ReactPromise,
-  ReactThunk
+  promiseMiddleware,
+  ReduxThunk
 )(createStore);
 
 ReactDOM.render(

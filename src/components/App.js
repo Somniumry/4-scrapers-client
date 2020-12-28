@@ -1,5 +1,5 @@
 import React from 'react';
-import './App.css';
+import '../common/App.css';
 import axios from 'axios';
 
 class App extends React.Component {

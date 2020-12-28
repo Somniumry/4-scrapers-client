@@ -1,0 +1,83 @@
+/* -------------------- common style -------------------- */
+
+.header {
+    width: 100%;
+    /* padding: 0.5%; */
+    /* background: tomato; */
+    color: #222;
+    font-family: 'S-CoreDream-5Medium';
+    font-size: 1.5rem;
+    display: flex;
+    text-align: center;
+    box-shadow: 0px 2px 10px 2px rgba(0, 0, 0, .2);
+    align-items: center; /* center height */
+    box-sizing: border-box;
+}
+
+/* --------------------- logo area --------------------- */
+
+.logo {
+    width: 6%;
+    /* background: tomato; */
+}
+
+/* ----------------- home, scrap area ----------------- */
+
+.left_menu {
+    width: 19%;
+    display: flex;
+}
+
+.left_menu_home {
+    width: 35%;
+    border-radius: 70px;
+    padding: 5% 0;
+    margin: 0 2%;
+    background: red;
+}
+
+.left_menu_scrap {
+    width: 55%;
+    border-radius: 70px;
+    padding: 5% 0;
+    margin: 0 2%;
+    background: yellowgreen;
+}
+
+/* ------------------- search area ------------------- */
+
+.searchbar {
+    width: 50%;
+    margin: 0 2%;
+    background: blue;
+}
+
+.searchbar span {
+    width: 80%;
+    /* padding: 1% 80% 1% 80%; */
+    background: tomato;
+}
+
+/* ------ signin, signup(signout, userinfo) area ------ */
+
+.right_menu {
+    width: 25%;
+    display: flex;
+    background: palevioletred;
+}
+
+.right_menu_signIn {
+    width: 40%;
+    border-radius: 70px;
+    padding: 5% 0;
+    margin: 0 2%;
+    background: olive;
+}
+
+.right_menu_signUp {
+    width: 40%;
+    border-radius: 70px;
+    padding: 5% 0;
+    margin: 0 2%;
+    background: blueviolet;
+}

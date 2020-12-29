@@ -1,0 +1,27 @@
+@font-face {
+  font-family: "S-CoreDream-1Thin";
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_six@1.2/S-CoreDream-1Thin.woff")
+    format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "S-CoreDream-5Medium";
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_six@1.2/S-CoreDream-5Medium.woff")
+    format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "S-CoreDream-7ExtraBold";
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_six@1.2/S-CoreDream-7ExtraBold.woff")
+    format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@value S_CoreDream_Thin: S-CoreDream-1Thin;
+@value S-CoreDream-Medium: S-CoreDream-5Medium;
+@value S-CoreDream-ExtraBold: S-CoreDream-7ExtraBold;

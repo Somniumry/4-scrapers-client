@@ -1,27 +1,30 @@
 import React from 'react';
 import styles from '../../common/Header.module.css';
 
-import logoImg from '../../style/images/logo.png';
-import searchImg from '../../style/images/search-24px.svg';
+import Logo from './Logo';
+import Home from './Home';
+import Scrap from './Scrap';
+import Searchbar from './Searchbar';
+import SignIn from './SignIn';
+import SignUp from './SignUp';
 
 export default function Header() {
+
+    // const [clicked, setClicked] = useState(true);
+
     return (
-        <div className={styles.header}>
-            <div className={styles.logo}>
-                <img src={logoImg} width="80px" alt="logo" />
+            <div className={styles.header}>
+                <Logo />
+                <div className={styles.left_menu}>
+                    <Home />
+                    <Scrap />
+                </div>
+                <Searchbar />
+                <div className={styles.right_menu}>
+                    <SignIn />
+                    <SignUp />
+                </div>
             </div>
-            <div className={styles.left_menu}>
-                <div className={styles.left_menu_home}>홈</div>
-                <div className={styles.left_menu_scrap}>스크랩</div>
-            </div>
-            <div className={styles.searchbar}>
-                <span></span>
-                <img src={searchImg}/>
-            </div>
-            <div className={styles.right_menu}>
-                <div className={styles.right_menu_signIn}>로그인</div>
-                <div className={styles.right_menu_signUp}>회원가입</div>
-            </div>
-        </div>
     )
+
 }

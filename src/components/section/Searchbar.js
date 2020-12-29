@@ -17,7 +17,7 @@ export default function Searchbar() {
     return (
         <div className={styles.searchbar}>
             <input value={value} onChange={e => setValue(e.target.value) }/>
-            <img src={searchImg} width="30px" onClick={() => handleClick(value)}/>
+            <span><img src={searchImg} width="30px" onClick={() => handleClick(value)}/></span>
         </div>
     )
 }

@@ -18,7 +18,7 @@ class App extends React.Component {
 
   render() {
     return (
-      <div className="App">
+      <div className="App" style={{height: '1000vh'}}>
         <Header />
         {/* <button onClick={this.handleClick}>click</button> */}
       </div>

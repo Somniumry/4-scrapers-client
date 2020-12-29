@@ -1,3 +1,14 @@
+@value S-CoreDream-Thin from  '../../../../common/fonts.css';
+@value S-CoreDream-ExtraLight from  '../../../../common/fonts.css';
+@value S-CoreDream-Regular from '../../../../common/fonts.css';
+@value S-CoreDream-Medium from  '../../../../common/fonts.css';
+@value S-CoreDream-ExtraBold from  '../../../../common/fonts.css';
+
+@value makerBlack from '../../../../common/colors.css';
+@value makerWhite from '../../../../common/colors.css';
+@value makerRed from '../../../../common/colors.css';
+@value makerRedHover from '../../../../common/colors.css';
+
 .container {
   height: 18rem;
   background-size: cover;
@@ -12,8 +23,8 @@
   left: 0;
   height: 4rem;
   width: 100%;
-  background-color: black;
-  color: white;
+  background-color: makerBlack;
+  color: makerWhite;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -21,6 +32,7 @@
   border-bottom-right-radius: 30px;
   padding: 0 1.5rem;
   box-sizing: border-box;
+  font-family: S-CoreDream-Regular;
   font-size: 0.9rem;
   font-weight: 600;
 }
@@ -37,7 +49,7 @@
   position: absolute;
   top: 0;
   left: 0;
-  background-color: black;
+  background-color: makerBlack;
   opacity: 0.6;
 }
 
@@ -56,10 +68,11 @@
 
 .hover__category {
   display: flex;
+  font-family: S-CoreDream-Medium;
 }
 
 .hover__category select {
-  background-color: white;
+  background-color: makerWhite;
   width: 9.7rem;
   height: 2rem;
   border: none;
@@ -67,18 +80,19 @@
   border-top-left-radius: 20px;
   border-bottom-left-radius: 20px;
   text-align-last: center;
+  font-family: S-CoreDream-Regular;
   font-weight: 600;
   font-size: 0.8rem;
 }
 
 .hover__category div {
-  background-color: red;
+  background-color: makerRed;
   width: 3.2rem;
   height: 2rem;
   display: flex;
   justify-content: center;
   align-items: center;
-  color: white;
+  color: makerWhite;
   font-size: 0.8rem;
   font-weight: 600;
   cursor: pointer;
@@ -87,9 +101,10 @@
 }
 
 .hover__title {
-  color: white;
+  color: makerWhite;
   padding: 0 1.5rem;
   box-sizing: border-box;
+  font-family: S-CoreDream-Medium;
   font-size: 0.9rem;
   font-weight: 600;
   margin-top: 0.8rem;
@@ -99,11 +114,12 @@
 }
 
 .hover__text {
-  color: white;
+  color: makerWhite;
   padding: 0 1.5rem;
   box-sizing: border-box;
+  font-family: S-CoreDream-Regular;
   font-size: 0.8rem;
-  margin-top: 0.8rem;
+  margin-top: 1.5rem;
   height: 5.938rem;
   width: 100%;
 }
@@ -113,17 +129,18 @@
 }
 
 .hover__publisher {
-  background-color: white;
+  background-color: makerWhite;
   border-radius: 30px;
   width: 12.9rem;
   height: 2rem;
   margin-top: 1rem;
+  font-family: S-CoreDream-Medium;
   font-size: 0.9rem;
   display: flex;
   justify-content: center;
   align-items: center;
   font-weight: 600;
-  color: black;
+  color: makerBlack;
 }
 
 .scrap {
@@ -140,7 +157,7 @@
 }
 
 .scrap__icon {
-  color: red;
+  color: makerRed;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -159,7 +176,7 @@
 
 .scrap__message {
   margin-top: 0.5rem;
-  color: white;
+  color: makerWhite;
   font-size: 0.9rem;
   font-weight: 600;
 }

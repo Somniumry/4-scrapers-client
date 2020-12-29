@@ -1,6 +1,9 @@
 @value makerBlack: black;
 @value makerWhite: white;
+@value makerWhiteHover: #ddd;
+@value makerHeaderDefaultBox: #eee;
 @value makerLightGrey: #e8e7e6;
 @value makerLightPink: #ffeae8;
 @value makerGrey: #7f7f7f;
-@value makerRed: #385461;
+@value makerRed: #df1c28;
+@value makerRedHover: #CD1C28;

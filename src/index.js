@@ -16,6 +16,12 @@ const httpClient = axios.create({
   baseURL: "http://52.79.228.106:5000",
 });
 
+httpClient.interceptors.request.use(function (config) {
+  const token = localStorage.getItem("Authorization");
+  config.headers.Authorization = token ? `Bearer ${token}` : "";
+  return config;
+});
+
 const news = new News(httpClient);
 
 const createStoreWithMiddleware = applyMiddleware(

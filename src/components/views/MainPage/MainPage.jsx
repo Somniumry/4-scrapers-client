@@ -14,6 +14,7 @@ const MainPage = ({ news, search, scrollHandler, scrolls }) => {
       .then((newsDatas) => {
         if (search && !scrolls) {
           setNewsList(newsDatas.data);
+          window.scrollTo(0, 0);
         } else {
           setNewsList([...NewsList, ...newsDatas.data]);
         }
@@ -23,7 +24,7 @@ const MainPage = ({ news, search, scrollHandler, scrolls }) => {
   const renderCards = () => {
     return NewsList.map((newsInfo, index) => (
       <div key={index}>
-        <Card {...newsInfo} />
+        <Card {...newsInfo} news={news} />
       </div>
     ));
   };

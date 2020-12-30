@@ -114,6 +114,9 @@ const RegisterModal = ({ renderRegisterModal }) => {
           className={styles.btnRegister}
           type="submit"
           value="계정 만들기"
+          onClick={() => {
+            return unregister("password");
+          }}
         />
       </form>
     </div>

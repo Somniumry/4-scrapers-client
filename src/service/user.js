@@ -9,7 +9,7 @@ class User {
   }
 
   async userSignUp(userRegisterInfo) {
-    const response = await this.user.post("/user/login", userRegisterInfo);
+    const response = await this.user.post("/user", userRegisterInfo);
     // return response.data;
   }
 }

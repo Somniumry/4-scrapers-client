@@ -7,12 +7,17 @@ import Scrap from "./Sections/Scrap";
 import Searchbar from "../../utils/Searchbar";
 import SignIn from "./Sections/SignIn";
 import SignUp from "./Sections/SignUp";
+import Logout from "./Sections/Logout";
+import UserInfo from "./Sections/UserInfo";
 import LoginModal from "./Sections/LoginModal/LoginModal";
 import RegisterModal from "./Sections/RegisterModal/RegisterModal";
+import UserInfoModal from "./Sections/UserInfoModal/UserInfoModal";
 
 export default function Header() {
+  const [LoginCompleted, setLoginCompleted] = useState(true);
   const [Login, setLogin] = useState(false);
   const [Register, setRegister] = useState(false);
+  const [UserInformation, setUserInformation] = useState(false);
 
   const renderLoginModal = () => {
     Login ? setLogin(false) : setLogin(true);
@@ -20,6 +25,10 @@ export default function Header() {
 
   const renderRegisterModal = () => {
     Register ? setRegister(false) : setRegister(true);
+  };
+
+  const renderUserInfoModal = () => {
+    UserInformation ? setUserInformation(false) : setUserInformation(true);
   };
 
   return (
@@ -31,8 +40,16 @@ export default function Header() {
       </div>
       <Searchbar />
       <div className={styles.right_menu}>
-        <SignIn renderLoginModal={renderLoginModal} />
-        <SignUp renderRegisterModal={renderRegisterModal} />
+        {LoginCompleted ? (
+          <Logout />
+        ) : (
+          <SignIn renderLoginModal={renderLoginModal} />
+        )}
+        {LoginCompleted ? (
+          <UserInfo renderUserInfoModal={renderUserInfoModal} />
+        ) : (
+          <SignUp renderRegisterModal={renderRegisterModal} />
+        )}
       </div>
       {Login && (
         <LoginModal
@@ -41,6 +58,9 @@ export default function Header() {
         />
       )}
       {Register && <RegisterModal renderRegisterModal={renderRegisterModal} />}
+      {UserInformation && (
+        <UserInfoModal renderUserInfoModal={renderUserInfoModal} />
+      )}
     </div>
   );
 }

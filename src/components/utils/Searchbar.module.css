@@ -1,3 +1,5 @@
+@value makerWhiteHover from '../../common/colors.css';
+
 /* ------------------- searchbar area ------------------- */
 
 .searchbar {
@@ -31,5 +33,5 @@
 }
 
 .searchbar img:hover {
-  background: #ddd;
+  opacity: 0.5;
 }

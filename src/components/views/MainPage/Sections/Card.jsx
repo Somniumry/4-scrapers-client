@@ -22,7 +22,7 @@ const Card = ({ title, text, image, category, publisher, url }) => {
   };
 
   const renderOptions = () => {
-    return category.map((opt) => <option>{opt}</option>);
+    return category.map((opt, index) => <option key={index}>{opt}</option>);
   };
   return (
     <div
@@ -58,7 +58,7 @@ const Card = ({ title, text, image, category, publisher, url }) => {
           <div className={styles.scrap}>
             <div className={styles.scrap__icon}>
               <span>- - - - - - - - - - - - - - - -</span>
-              <img src={scissors} />
+              <img src={scissors} alt="scissors" />
             </div>
             <div className={styles.scrap__message}>
               내 스크랩 저장소에 추가!

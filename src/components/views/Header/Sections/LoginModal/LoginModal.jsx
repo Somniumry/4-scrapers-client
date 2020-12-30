@@ -9,6 +9,9 @@ const LoginModal = ({ renderLoginModal, renderRegisterModal }) => {
   const dispatch = useDispatch();
   const { register, handleSubmit, watch, errors, unregister } = useForm();
 
+  const emailStyle = errors.email ? styles.errorInput : styles.input;
+  const passwordStyle = errors.password ? styles.errorInput : styles.input;
+
   const onSubmit = (data, event) => {
     console.log(data);
     event.preventDefault();
@@ -38,22 +41,26 @@ const LoginModal = ({ renderLoginModal, renderRegisterModal }) => {
           ref={register({
             required: true,
           })}
-          className={styles.input}
+          className={emailStyle}
           placeholder="email"
         />
-        {errors.email && <div className={styles.errors}>Email is required</div>}
+        {errors.email && (
+          <div className={styles.errorMessage}>Email is required</div>
+        )}
         <input
           type="password"
           name="password"
           ref={register({ required: true, minLength: 10 })}
-          className={styles.input}
+          className={passwordStyle}
           placeholder="password"
         />
         {errors?.password?.type === "required" && (
-          <div className={styles.errors}>Password is required</div>
+          <div className={styles.errorMessage}>Password is required</div>
         )}
         {errors?.password?.type === "minLength" && (
-          <div className={styles.errors}>Password length is at least 10</div>
+          <div className={styles.errorMessage}>
+            Password length is at least 10
+          </div>
         )}
         <div className={styles.login__btn}>
           <input

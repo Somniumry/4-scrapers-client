@@ -32,7 +32,7 @@ export default function Header() {
       <Searchbar />
       <div className={styles.right_menu}>
         <SignIn renderLoginModal={renderLoginModal} />
-        <SignUp />
+        <SignUp renderRegisterModal={renderRegisterModal} />
       </div>
       {Login && (
         <LoginModal
@@ -40,12 +40,7 @@ export default function Header() {
           renderRegisterModal={renderRegisterModal}
         />
       )}
-      {Register && (
-        <RegisterModal
-          renderLoginModal={renderLoginModal}
-          renderRegisterModal={renderRegisterModal}
-        />
-      )}
+      {Register && <RegisterModal renderRegisterModal={renderRegisterModal} />}
     </div>
   );
 }

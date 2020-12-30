@@ -3,12 +3,14 @@ class User {
     this.user = httpClient;
   }
 
-  async userSignIn(email, password) {
-    const response = await this.user.post("/user/login", {
-      email,
-      password,
-    });
-    return response.data;
+  async userSignIn(userLoginInfo) {
+    const response = await this.user.post("/user/login", userLoginInfo);
+    // return response.data;
+  }
+
+  async userSignUp(userRegisterInfo) {
+    const response = await this.user.post("/user/login", userRegisterInfo);
+    // return response.data;
   }
 }
 

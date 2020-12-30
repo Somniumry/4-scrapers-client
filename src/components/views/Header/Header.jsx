@@ -9,6 +9,7 @@ import SignIn from "./Sections/SignIn";
 import SignUp from "./Sections/SignUp";
 import LoginModal from "./Sections/LoginModal/LoginModal";
 import RegisterModal from "./Sections/RegisterModal/RegisterModal";
+import EditUser from './Sections/EditUser/EditUser';
 
 export default function Header() {
   const [Login, setLogin] = useState(false);
@@ -41,6 +42,7 @@ export default function Header() {
         />
       )}
       {Register && <RegisterModal renderRegisterModal={renderRegisterModal} />}
+      <EditUser />
     </div>
   );
 }

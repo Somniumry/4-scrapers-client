@@ -12,7 +12,7 @@ import axios from "axios";
 import "./index.css";
 
 const httpClient = axios.create({
-  baseURL: "http://52.79.228.106",
+  baseURL: "http://52.79.228.106:5000",
 });
 
 const news = new News(httpClient);

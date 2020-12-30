@@ -3,19 +3,21 @@ import axios from "axios";
 import { USER_SIGNIN, USER_SIGNUP, USER_SIGNOUT } from "./types";
 
 const httpClient = axios.create({
-  baseURL: "http://52.79.228.106",
+  baseURL: "http://52.79.228.106:5000",
 });
 
 const user = new User(httpClient);
 
 export const userSignIn = (userLoginInfo) => {
   const result = user.userSignIn(userLoginInfo);
+  console.log("action", result);
 
   return {
     type: USER_SIGNIN,
     payload: result,
   };
 };
+
 export const userSignUp = (userRegisterInfo) => {
   const result = user.userSignUp(userRegisterInfo);
 

@@ -2,7 +2,9 @@ import React, { useState } from "react";
 import styles from "./Card.module.css";
 import scissors from "../../../../images/content_cut-24px.svg";
 
-const Card = ({ title, text, image, category, publisher, url }) => {
+const Card = ({ title, description, imageURL, url, provider }) => {
+  const category = ["정치", "기타", "스포츠"];
+
   const [Hover, setHover] = useState(false);
   const [Scrap, setScrap] = useState(false);
 
@@ -27,11 +29,13 @@ const Card = ({ title, text, image, category, publisher, url }) => {
   return (
     <div
       className={styles.container}
-      style={{ backgroundImage: `url(${image})` }}
+      style={{ backgroundImage: `url(${imageURL})` }}
       onMouseEnter={onMouseEnterHandler}
       onMouseLeave={onMouseLeaveHandler}
     >
-      {!Hover && !Scrap && <div className={styles.title}>{title}</div>}
+      {!Hover && !Scrap && (
+        <div className={styles.title}>{title.slice(0, 30)}...</div>
+      )}
       {Hover && !Scrap && (
         <div className={styles.hcontainer}>
           <div className={styles.background}></div>
@@ -42,11 +46,13 @@ const Card = ({ title, text, image, category, publisher, url }) => {
               </select>
               <div onClick={onScrapHandler}>저장</div>
             </div>
-            <div className={styles.hover__title}>{title}</div>
-            <div className={styles.hover__text}>{text}</div>
-            <a href={`https://naver.com`}>
+            <div className={styles.hover__title}>{title.slice(0, 30)}...</div>
+            <div className={styles.hover__text}>
+              {description.slice(0, 120)}...
+            </div>
+            <a href={url} target="_blank" rel="noreferrer">
               <div className={styles.hover__publisher}>
-                {publisher} 기사 보러가기
+                {provider} 기사 보러가기
               </div>
             </a>
           </div>

@@ -4,11 +4,16 @@ class News {
   }
 
   async renderNews(query, scrolls) {
-    const response = await this.news.post("/search/bing", {
-      q: query,
-      scrolls: scrolls,
-    });
-    return response.data;
+    try {
+      console.log(scrolls);
+      const response = await this.news.post("/search/bing", {
+        q: query,
+        scrolls: scrolls,
+      });
+      return { data: response.data.data, success: true };
+    } catch (error) {
+      return { data: [], success: false };
+    }
   }
 }
 

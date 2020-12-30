@@ -12,10 +12,10 @@ const LoginModal = ({ renderLoginModal, renderRegisterModal }) => {
   const emailStyle = errors.email ? styles.errorInput : styles.input;
   const passwordStyle = errors.password ? styles.errorInput : styles.input;
 
-  const onSubmit = (data, event) => {
-    console.log(data);
+  const onSubmit = (loginData, event) => {
+    console.log(loginData);
     event.preventDefault();
-    // dispatch(userSignIn(data.email, data.password));
+    dispatch(userSignIn(loginData));
     //성공 후 renderLoginModal 발동
   };
   console.log(watch("email"));

@@ -15,7 +15,7 @@ const LoginModal = ({ renderLoginModal, renderRegisterModal }) => {
   const onSubmit = (data, event) => {
     console.log(data);
     event.preventDefault();
-    dispatch(userSignIn(data.email, data.password));
+    // dispatch(userSignIn(data.email, data.password));
     //성공 후 renderLoginModal 발동
   };
   console.log(watch("email"));

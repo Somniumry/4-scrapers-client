@@ -8,19 +8,22 @@ const httpClient = axios.create({
 
 const user = new User(httpClient);
 
-export const userSignIn = (email, password) => {
-  const result = user.userSignIn(email, password);
+export const userSignIn = (userLoginInfo) => {
+  const result = user.userSignIn(userLoginInfo);
 
   return {
     type: USER_SIGNIN,
     payload: result,
   };
 };
+export const userSignUp = (userRegisterInfo) => {
+  const result = user.userSignUp(userRegisterInfo);
 
-export const usersignup = (data) => ({
-  type: USER_SIGNUP,
-  data,
-});
+  return {
+    type: USER_SIGNUP,
+    payload: result,
+  };
+};
 
 export const usersignout = (data) => ({
   type: USER_SIGNOUT,

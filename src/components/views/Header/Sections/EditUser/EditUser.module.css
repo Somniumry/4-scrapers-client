@@ -1,0 +1,184 @@
+@value makerLightGrey from "../../../../../common/colors.css";
+@value makerRed from "../../../../../common/colors.css";
+@value S-CoreDream-Medium from "../../../../../common/fonts.css";
+@value S-CoreDream-ExtraBold from "../../../../../common/fonts.css";
+
+.container {
+  width: 100vw;
+  height: 100vh;
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.background {
+  position: absolute;
+  background-color: black;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0.6;
+}
+
+.login {
+  width: 50rem;
+  height: 31rem;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-radius: 70px;
+  z-index: 1;
+  position: relative;
+  padding: 1rem 0;
+  box-sizing: border-box;
+}
+
+.back {
+  width: 6rem;
+  height: 3.3rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: makerLightGrey;
+  border-radius: 30px;
+  position: absolute;
+  top: 7%;
+  left: 7%;
+  font-size: 0.9rem;
+  cursor: pointer;
+  font-family: S-CoreDream-Medium;
+}
+
+.logo {
+  width: 3.7rem;
+  margin-bottom: 0.9rem;
+}
+
+.title {
+  font-size: 2.5rem;
+  margin: 0;
+  font-family: S-CoreDream-ExtraBold;
+}
+
+.content {
+    display: flex;
+}
+
+.profile {
+    width: 30%;
+}
+
+.img_box {
+  width: 150px;
+  height: 150px;
+  background: red;
+  margin: 0 auto;
+  border-radius: 70px;
+  position: relative;
+}
+
+.img_box span {
+  position: absolute;
+  left: 41%;
+  bottom: 0.5rem;
+}
+
+/* .img_box img {
+  width: inherit;
+  overflow: hidden;
+} */
+
+.userForm {
+    width: 70%;
+    text-align: left;
+    padding: 1rem;
+    box-sizing: border-box;
+}
+
+.input {
+  width: 23rem;
+  height: 2.4rem;
+  border-radius: 15px;
+  border: solid 0.15rem lightgray;
+  padding-left: 1rem;
+  background: white;
+  margin-top: 1rem;
+}
+
+.input::placeholder {
+  font-size: 0.9rem;
+  color: lightgray;
+  font-weight: 500;
+  font-family: S-CoreDream-Medium;
+}
+
+.input:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px blue;
+}
+
+.errorInput {
+  width: 23rem;
+  height: 2.4rem;
+  border-radius: 15px;
+  border: solid 0.15rem lightgray;
+  padding-left: 1rem;
+  background: white;
+  margin-top: 1rem;
+  outline: none;
+  box-shadow: 0 0 0 2px makerRed;
+}
+
+.errorInput::placeholder {
+  font-size: 0.9rem;
+  color: lightgray;
+  font-weight: 500;
+  font-family: S-CoreDream-Medium;
+}
+
+.errorInput:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px makerRed;
+}
+
+.errorMessage {
+  color: makerRed;
+  width: 23rem;
+  text-align: start;
+  font-size: 0.75rem;
+  margin-top: 0.5rem;
+}
+
+.edit_btn_box {
+  width: 24rem;
+  display: flex;
+  justify-content: space-between;
+  margin-top: 0.9rem;
+}
+
+.edit_btn {
+  width: 11rem;
+  height: 2.5rem;
+  border-radius: 5px;
+  border: none;
+  outline: none;
+  color: white;
+  background-color: makerRed;
+  cursor: pointer;
+  font-size: 0.95rem;
+  font-weight: 600;
+  text-align: center;
+  font-family: S-CoreDream-Medium;
+}
+
+.edit_btn:focus {
+  outline: none;
+  border: none;
+}

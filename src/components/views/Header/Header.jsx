@@ -12,6 +12,8 @@ import UserInfo from "./Sections/UserInfo";
 import LoginModal from "./Sections/LoginModal/LoginModal";
 import RegisterModal from "./Sections/RegisterModal/RegisterModal";
 import UserInfoModal from "./Sections/UserInfoModal/UserInfoModal";
+import EditUser from './Sections/EditUser/EditUser';
+
 
 export default function Header() {
   const [LoginCompleted, setLoginCompleted] = useState(true);
@@ -61,6 +63,8 @@ export default function Header() {
       {UserInformation && (
         <UserInfoModal renderUserInfoModal={renderUserInfoModal} />
       )}
+      <EditUser />
+
     </div>
   );
 }

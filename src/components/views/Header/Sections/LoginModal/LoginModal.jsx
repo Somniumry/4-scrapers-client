@@ -5,21 +5,32 @@ import logo from "../../../../../images/logo.png";
 import { useForm } from "react-hook-form";
 import { userSignIn } from "../../../../../_actions/user_action";
 
-const LoginModal = ({ renderLoginModal, renderRegisterModal }) => {
+const LoginModal = ({
+  renderLoginModal,
+  renderRegisterModal,
+  changeHeaderButton,
+}) => {
   const dispatch = useDispatch();
-  const { register, handleSubmit, watch, errors, unregister } = useForm();
+  const { register, handleSubmit, errors, unregister } = useForm();
 
   const emailStyle = errors.email ? styles.errorInput : styles.input;
   const passwordStyle = errors.password ? styles.errorInput : styles.input;
 
   const onSubmit = (loginData, event) => {
-    console.log(loginData);
     event.preventDefault();
-    dispatch(userSignIn(loginData));
-    //성공 후 renderLoginModal 발동
+    dispatch(userSignIn(loginData)).then((result) => {
+      if (result.payload.success) {
+        localStorage.setItem(
+          "Authorization",
+          result.payload.userData.accessToken
+        );
+        renderLoginModal();
+        changeHeaderButton();
+      } else {
+        alert("로그인에 실패했습니다.");
+      }
+    });
   };
-  console.log(watch("email"));
-  console.log(errors.password);
 
   return (
     <div className={styles.container}>

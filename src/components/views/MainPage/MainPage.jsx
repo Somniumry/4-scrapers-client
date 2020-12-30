@@ -11,18 +11,13 @@ const MainPage = ({ news, search, scrollHandler, scrolls }) => {
   useEffect(() => {
     news
       .renderNews(search, scrolls) //
-      .then(
-        (newsDatas) => {
-          if (search && !scrolls) {
-            setNewsList(newsDatas.data);
-          } else {
-            setNewsList([...NewsList, ...newsDatas.data]);
-          }
+      .then((newsDatas) => {
+        if (search && !scrolls) {
+          setNewsList(newsDatas.data);
+        } else {
+          setNewsList([...NewsList, ...newsDatas.data]);
         }
-        // search
-        //   ? setNewsList([...NewsList, newsDatas.data])
-        //   : setNewsList([...NewsList, ...newsDatas.data])
-      );
+      });
   }, [news, search, scrolls]);
 
   const renderCards = () => {
@@ -39,21 +34,6 @@ const MainPage = ({ news, search, scrollHandler, scrolls }) => {
         <div className={styles.view}>
           <div className={styles.gridContainer}>{renderCards()}</div>
         </div>
-        {/* {Login && (
-          <LoginModal />
-          <div
-            style={{
-              background: "black",
-              width: "100vw",
-              height: "100vh",
-              opacity: "0.6",
-              position: "absolute",
-              top: 0,
-              left: 0,
-            }}
-          ></div>
-        )} */}
-        {/* <button onClick={onClickHandler}>1111</button> */}
       </div>
 
       <More scrollHandler={scrollHandler} />

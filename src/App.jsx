@@ -1,8 +1,9 @@
 import React, { useState } from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import MainPage from "./components/views/MainPage/MainPage";
-import "./App.css";
 import Header from "./components/views/Header/Header";
+import { userToken } from "./_actions/user_action";
+import "./App.css";
 
 const App = ({ news }) => {
   const [Search, setSearch] = useState("");

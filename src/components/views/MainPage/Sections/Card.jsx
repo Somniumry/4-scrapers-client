@@ -4,6 +4,7 @@ import scissors from "../../../../images/content_cut-24px.svg";
 
 const Card = ({ title, description, imageURL, url, provider }) => {
   const category = ["정치", "기타", "스포츠"];
+  const longPublisher = provider.length > 10 && styles.long__publisher;
 
   const [Hover, setHover] = useState(false);
   const [Scrap, setScrap] = useState(false);
@@ -26,6 +27,7 @@ const Card = ({ title, description, imageURL, url, provider }) => {
   const renderOptions = () => {
     return category.map((opt, index) => <option key={index}>{opt}</option>);
   };
+
   return (
     <div
       className={styles.container}
@@ -51,7 +53,7 @@ const Card = ({ title, description, imageURL, url, provider }) => {
               {description.slice(0, 120)}...
             </div>
             <a href={url} target="_blank" rel="noreferrer">
-              <div className={styles.hover__publisher}>
+              <div className={`${styles.hover__publisher} ${longPublisher}`}>
                 {provider} 기사 보러가기
               </div>
             </a>

@@ -1,4 +1,6 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import { useDispatch } from "react-redux";
+import { userToken } from "../../../_actions/user_action";
 import styles from "./Header.module.css";
 
 import Logo from "./Sections/Logo";
@@ -15,6 +17,8 @@ import UserInfoModal from "./Sections/UserInfoModal/UserInfoModal";
 import EditUser from "./Sections/EditUser/EditUser";
 
 export default function Header({ searchQuery }) {
+  const dispatch = useDispatch();
+
   const [LoginCompleted, setLoginCompleted] = useState(false);
   const [Login, setLogin] = useState(false);
   const [Register, setRegister] = useState(false);
@@ -37,6 +41,20 @@ export default function Header({ searchQuery }) {
     EditUserForm ? setEditUserForm(false) : setEditUserForm(true);
   };
 
+  const changeHeaderButton = () => {
+    LoginCompleted ? setLoginCompleted(false) : setLoginCompleted(true);
+  };
+
+  useEffect(() => {
+    dispatch(userToken()).then((result) => {
+      if (result.payload.success) {
+        setLoginCompleted(true);
+      } else {
+        setLoginCompleted(false);
+      }
+    });
+  }, []);
+
   return (
     <div className={styles.header}>
       <Logo />
@@ -47,7 +65,7 @@ export default function Header({ searchQuery }) {
       <Searchbar searchQuery={searchQuery} />
       <div className={styles.right_menu}>
         {LoginCompleted ? (
-          <Logout />
+          <Logout changeHeaderButton={changeHeaderButton} />
         ) : (
           <SignIn renderLoginModal={renderLoginModal} />
         )}
@@ -61,6 +79,7 @@ export default function Header({ searchQuery }) {
         <LoginModal
           renderLoginModal={renderLoginModal}
           renderRegisterModal={renderRegisterModal}
+          changeHeaderButton={changeHeaderButton}
         />
       )}
       {Register && <RegisterModal renderRegisterModal={renderRegisterModal} />}

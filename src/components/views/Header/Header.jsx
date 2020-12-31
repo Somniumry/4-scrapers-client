@@ -63,7 +63,7 @@ export default function Header() {
       {UserInformation && (
         <UserInfoModal renderUserInfoModal={renderUserInfoModal} />
       )}
-      <EditUser />
+      {/* <EditUser /> */}
 
     </div>
   );

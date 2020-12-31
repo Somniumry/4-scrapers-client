@@ -4,13 +4,16 @@ import MainPage from "./components/views/MainPage/MainPage";
 import "./App.css";
 import axios from "axios";
 import Header from "./components/views/Header/Header";
+import StoragePage from './components/views/StoragePage/StoragePage';
 
 const App = ({ news }) => {
   return (
     <Router>
       <Header />
       <Switch>
-        <Route path="/scrap">{/* <ScrapPage /> */}</Route>
+        <Route path="/scrap">
+          <StoragePage />
+        </Route>
         <Route path="/" exact>
           <MainPage news={news} />
         </Route>

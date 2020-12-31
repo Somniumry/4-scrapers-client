@@ -5,6 +5,7 @@ import logo from "../../../../../images/logo.png";
 
 const UserInfoModal = ({ renderUserInfoModal }) => {
   // const user = useSelector()
+  //   <EditUser />;
 };
 
 export default UserInfoModal;

@@ -4,11 +4,27 @@ class News {
   }
 
   async renderNews(query, scrolls) {
-    const response = await this.news.post("/search/bing", {
-      q: query,
-      scrolls: scrolls,
-    });
-    return response.data;
+    try {
+      const response = await this.news.post("/search/bing", {
+        q: query,
+        scrolls: scrolls,
+      });
+      return { data: response.data.data, success: true };
+    } catch (error) {
+      return { data: [], success: false };
+    }
+  }
+
+  async scrapNews(newsInfo) {
+    try {
+      const token = localStorage.getItem("Authorization");
+      if (!token) throw Error();
+
+      await this.news.post("/search/scrap/upload", newsInfo);
+      return { success: true };
+    } catch (error) {
+      return { success: false };
+    }
   }
 }
 

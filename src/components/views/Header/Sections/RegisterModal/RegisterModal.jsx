@@ -24,11 +24,16 @@ const RegisterModal = ({ renderRegisterModal }) => {
   const Password = getValues("password");
   const Repassword = watch("repassword");
 
-  const onSubmit = (data, event) => {
+  const onSubmit = (registerData, event) => {
     event.preventDefault();
-    renderRegisterModal();
-    // dispatch(userSignUp(data)).then(//성공 후 얼럴트 창 확인 누르면 renderRegiterModal 실행);
-    //성공 후 renderLoginModal 발동
+    dispatch(userSignUp(registerData)).then((result) => {
+      if (result.payload.success) {
+        alert("회원가입에 성공했습니다.");
+        renderRegisterModal();
+      } else {
+        alert("회원가입에 실패했습니다.");
+      }
+    });
   };
 
   return (
@@ -114,9 +119,9 @@ const RegisterModal = ({ renderRegisterModal }) => {
           className={styles.btnRegister}
           type="submit"
           value="계정 만들기"
-          onClick={() => {
-            return unregister("password");
-          }}
+          // onClick={() => {
+          //   return unregister("password");
+          // }}
         />
       </form>
     </div>

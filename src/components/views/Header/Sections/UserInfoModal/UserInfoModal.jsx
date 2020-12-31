@@ -4,7 +4,11 @@ import { useSelector } from "react-redux";
 import logo from "../../../../../images/logo.png";
 import userBaseImage from "../../../../../images/user_profile.svg";
 
-const UserInfoModal = ({ renderUserInfoModal, renderEditUserModal }) => {
+const UserInfoModal = ({
+  renderUserInfoModal,
+  renderEditUserModal,
+  renderDeleteUserModal,
+}) => {
   let { email, name, profileIconURL } = useSelector((userState) => {
     return userState.userReducer.user.userInfo.data;
   });
@@ -48,7 +52,15 @@ const UserInfoModal = ({ renderUserInfoModal, renderEditUserModal }) => {
               >
                 수정하기
               </button>
-              <button className={styles.edit_btn}>계정 삭제하기</button>
+              <button
+                className={styles.edit_btn}
+                onClick={() => {
+                  renderUserInfoModal();
+                  renderDeleteUserModal();
+                }}
+              >
+                계정 삭제하기
+              </button>
             </div>
           </div>
         </div>

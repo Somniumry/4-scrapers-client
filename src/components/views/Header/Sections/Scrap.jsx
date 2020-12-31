@@ -4,8 +4,8 @@ import styles from "../Header.module.css";
 
 export default function Scrap() {
   return (
-    <div className={styles.left_menu_scrap}>
-      <Link to="/scrap">스크랩</Link>
-    </div>
+    <Link className={styles.left_menu_scrap} to="/scrap">
+      <div>스크랩</div>
+    </Link>
   );
 }

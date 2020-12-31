@@ -87,7 +87,7 @@ const UserInfoModal = ({ renderUserInfoModal, renderEditUserModal }) => {
         <img src={logo} className={styles.logo} alt="logo" />
         <h2 className={styles.title}>User Profile</h2>
         <div className={styles.content}>
-          <div>
+          <div className={styles.imgBox}>
             <img
               className={styles.userImage}
               src={
@@ -102,7 +102,9 @@ const UserInfoModal = ({ renderUserInfoModal, renderEditUserModal }) => {
               name="img"
               onChange={onChangeImage}
             />
-            <div onClick={onButtonClick}>변경</div>
+            <div className={styles.change} onClick={onButtonClick}>
+              변경
+            </div>
           </div>
 
           <div className={styles.userInfo}>

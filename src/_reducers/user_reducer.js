@@ -3,6 +3,7 @@ import {
   USER_SIGNUP,
   USER_SIGNOUT,
   USER_TOKEN,
+  USER_EDIT,
 } from "../_actions/types";
 
 const userReducer = (state = {}, action) => {
@@ -23,6 +24,11 @@ const userReducer = (state = {}, action) => {
       return {
         ...state,
         user: action.payload,
+      };
+    case USER_EDIT:
+      return {
+        ...state,
+        edit: action.payload,
       };
 
     default:

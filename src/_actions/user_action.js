@@ -1,9 +1,15 @@
 import User from "../service/user";
 import axios from "axios";
-import { USER_SIGNIN, USER_SIGNUP, USER_SIGNOUT, USER_TOKEN } from "./types";
+import {
+  USER_SIGNIN,
+  USER_SIGNUP,
+  USER_SIGNOUT,
+  USER_TOKEN,
+  USER_EDIT,
+} from "./types";
 
 const httpClient = axios.create({
-  baseURL: "http://52.79.228.106:5000",
+  baseURL: "http://ec2-54-180-54-2.ap-northeast-2.compute.amazonaws.com:5000",
 });
 
 httpClient.interceptors.request.use(function (config) {
@@ -41,4 +47,10 @@ export const userToken = async () => {
   const result = await user.userToken();
 
   return { type: USER_TOKEN, payload: result };
+};
+
+export const userEdit = async (userEditInfo, imgUrl) => {
+  const result = await user.userEdit(userEditInfo, imgUrl);
+
+  return { type: USER_EDIT, payload: result };
 };

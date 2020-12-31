@@ -38,11 +38,42 @@ class User {
       const response = await this.user.post("/user/token");
       const userInfo = await this.user.get("/user");
 
+      localStorage.setItem("Authorization", response.data.accessToken);
+
       return {
         userData: response.data,
         userInfo: userInfo.data,
         success: true,
       };
+    } catch (error) {
+      return { success: false };
+    }
+  }
+
+  async userEdit(userEditInfo, imgFile) {
+    try {
+      if (!userEditInfo.name && !userEditInfo.password && !imgFile) {
+        throw Error();
+      } else if (!userEditInfo.name) {
+        delete userEditInfo.name;
+      } else if (!userEditInfo.password) {
+        delete userEditInfo.password;
+      }
+
+      if (userEditInfo.name || userEditInfo.password) {
+        const infoResponse = await this.user.patch("/user", userEditInfo);
+        console.log(infoResponse);
+      }
+
+      if (imgFile) {
+        const data = new FormData();
+        data.append("img", imgFile);
+        const imgResponse = await this.user.post("/user/icon", data);
+
+        console.log(imgResponse);
+      }
+
+      return { success: true };
     } catch (error) {
       return { success: false };
     }

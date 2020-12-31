@@ -1,28 +1,28 @@
-import { USER_SIGNIN, USER_SIGNUP, USER_SIGNOUT } from "../_actions/types";
+import {
+  USER_SIGNIN,
+  USER_SIGNUP,
+  USER_SIGNOUT,
+  USER_TOKEN,
+} from "../_actions/types";
 
-const initialState = {};
-
-const userReducer = (state = initialState, action) => {
+const userReducer = (state = {}, action) => {
   switch (action.type) {
     case USER_SIGNIN:
-      // TODO
       return {
         ...state,
         user: action.payload,
       };
-
     case USER_SIGNUP:
-      // TODO
       return {
         ...state,
-        data: action.payload,
+        register: action.payload,
       };
-
     case USER_SIGNOUT:
-      // TODO
+      return {};
+    case USER_TOKEN:
       return {
         ...state,
-        data: action.payload,
+        user: action.payload,
       };
 
     default:

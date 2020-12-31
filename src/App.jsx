@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import MainPage from "./components/views/MainPage/MainPage";
 import Header from "./components/views/Header/Header";
+import StoragePage from './components/views/StoragePage/StoragePage';
 import { userToken } from "./_actions/user_action";
 import "./App.css";
 
@@ -22,7 +23,9 @@ const App = ({ news }) => {
     <Router>
       <Header searchQuery={searchQuery} />
       <Switch>
-        <Route path="/scrap">{/* <ScrapPage /> */}</Route>
+        <Route path="/scrap">
+          <StoragePage />
+        </Route>
         <Route path="/" exact>
           <MainPage
             news={news}

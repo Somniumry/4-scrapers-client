@@ -89,6 +89,8 @@ export default function Header({ searchQuery }) {
           renderEditUserModal={renderEditUserModal}
         />
       )}
+      
+      {/* <EditUser /> */}
       {EditUserForm && <EditUser renderEditUserModal={renderEditUserModal} />}
     </div>
   );

@@ -77,7 +77,13 @@ const RegisterModal = ({ renderRegisterModal }) => {
         <input
           type="password"
           name="password"
-          ref={register({ required: true, minLength: 10 })}
+          ref={register({
+            required: true,
+            minLength: 10,
+            validate: () => {
+              return Repassword === Password;
+            },
+          })}
           className={passwordStyle}
           placeholder="password"
         />

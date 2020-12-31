@@ -2,12 +2,11 @@ import React, { useState } from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import MainPage from "./components/views/MainPage/MainPage";
 import Header from "./components/views/Header/Header";
-import StoragePage from './components/views/StoragePage/StoragePage';
-import { userToken } from "./_actions/user_action";
+import StoragePage from "./components/views/StoragePage/StoragePage";
 import "./App.css";
 
 const App = ({ news }) => {
-  const [Search, setSearch] = useState("");
+  const [Search, setSearch] = useState("속보");
   const [Scrolls, setScrolls] = useState(0);
 
   const searchQuery = (search) => {

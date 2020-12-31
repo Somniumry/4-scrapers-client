@@ -3,7 +3,7 @@ import { useDispatch } from "react-redux";
 import styles from "./LoginModal.module.css";
 import logo from "../../../../../images/logo.png";
 import { useForm } from "react-hook-form";
-import { userSignIn } from "../../../../../_actions/user_action";
+import { userSignIn, userToken } from "../../../../../_actions/user_action";
 
 const LoginModal = ({
   renderLoginModal,
@@ -16,20 +16,21 @@ const LoginModal = ({
   const emailStyle = errors.email ? styles.errorInput : styles.input;
   const passwordStyle = errors.password ? styles.errorInput : styles.input;
 
-  const onSubmit = (loginData, event) => {
+  const onSubmit = async (loginData, event) => {
     event.preventDefault();
-    dispatch(userSignIn(loginData)).then((result) => {
-      if (result.payload.success) {
-        localStorage.setItem(
-          "Authorization",
-          result.payload.userData.accessToken
-        );
-        renderLoginModal();
-        changeHeaderButton();
-      } else {
-        alert("로그인에 실패했습니다.");
-      }
-    });
+    const result = await dispatch(userSignIn(loginData));
+
+    if (result.payload.success) {
+      localStorage.setItem(
+        "Authorization",
+        result.payload.userData.accessToken
+      );
+      await dispatch(userToken());
+      renderLoginModal();
+      changeHeaderButton();
+    } else {
+      alert("로그인에 실패했습니다.");
+    }
   };
 
   return (

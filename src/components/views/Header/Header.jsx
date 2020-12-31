@@ -14,7 +14,7 @@ import UserInfo from "./Sections/UserInfo";
 import LoginModal from "./Sections/LoginModal/LoginModal";
 import RegisterModal from "./Sections/RegisterModal/RegisterModal";
 import UserInfoModal from "./Sections/UserInfoModal/UserInfoModal";
-import EditUser from "./Sections/EditUser/EditUser";
+import EditUserModal from "./Sections/EditUserModal/EditUserModal";
 
 export default function Header({ searchQuery }) {
   const dispatch = useDispatch();
@@ -89,9 +89,13 @@ export default function Header({ searchQuery }) {
           renderEditUserModal={renderEditUserModal}
         />
       )}
-      
-      {/* <EditUser /> */}
-      {EditUserForm && <EditUser renderEditUserModal={renderEditUserModal} />}
+
+      {EditUserForm && (
+        <EditUserModal
+          renderUserInfoModal={renderUserInfoModal}
+          renderEditUserModal={renderEditUserModal}
+        />
+      )}
     </div>
   );
 }

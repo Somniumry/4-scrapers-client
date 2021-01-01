@@ -1,7 +1,5 @@
 import React, { useState, useEffect } from "react";
 import Card from "./Sections/Card";
-import LoginModal from "../Header/Sections/LoginModal/LoginModal";
-import News from "../../../images/news.jpg";
 import styles from "./MainPage.module.css";
 import More from "./Sections/More";
 
@@ -16,7 +14,7 @@ const MainPage = ({ news, search, scrollHandler, scrolls }) => {
           setNewsList(newsDatas.data);
           window.scrollTo(0, 0);
         } else {
-          setNewsList([...NewsList, ...newsDatas.data]);
+          setNewsList((News) => [...News, ...newsDatas.data]);
         }
       });
   }, [news, search, scrolls]);

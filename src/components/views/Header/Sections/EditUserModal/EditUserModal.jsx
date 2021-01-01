@@ -14,14 +14,9 @@ const UserInfoModal = ({ renderUserInfoModal, renderEditUserModal }) => {
   });
 
   profileIconURL = profileIconURL ? profileIconURL : userBaseImage;
-  const {
-    register,
-    handleSubmit,
-    watch,
-    errors,
-    unregister,
-    getValues,
-  } = useForm({ defaultValues: { name: name } });
+  const { register, handleSubmit, watch, errors, getValues } = useForm({
+    defaultValues: { name: name },
+  });
 
   const nickNameStyle = errors.name ? styles.errorInput : styles.input;
   const passwordStyle = errors.password ? styles.errorInput : styles.input;
@@ -36,7 +31,7 @@ const UserInfoModal = ({ renderUserInfoModal, renderEditUserModal }) => {
     const Imgfile = ImageUpload.file;
     const result = await dispatch(userEdit(editData, Imgfile));
 
-    const getInfo = await dispatch(userToken(editData));
+    await dispatch(userToken(editData));
 
     if (result.payload.success) {
       renderEditUserModal();
@@ -96,6 +91,7 @@ const UserInfoModal = ({ renderUserInfoModal, renderEditUserModal }) => {
               src={
                 ImageUpload.previewURL ? ImageUpload.previewURL : profileIconURL
               }
+              alt="profile"
             ></img>
             <input
               ref={inputRef}

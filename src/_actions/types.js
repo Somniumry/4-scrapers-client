@@ -4,3 +4,4 @@ export const USER_SIGNOUT = "USER_SIGNOUT";
 export const USER_TOKEN = "USER_TOKEN";
 export const USER_EDIT = "USER_EDIT";
 export const USER_DELETE = "USER_DELETE";
+export const USER_GOOGLE = "USER_GOOGLE";

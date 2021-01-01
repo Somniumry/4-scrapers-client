@@ -78,7 +78,10 @@ class User {
 
   async userDelete(password) {
     try {
-      const response = await this.user.delete("/user", password);
+      console.log(password);
+      const response = await this.user.delete("/user", {
+        data: password,
+      });
       console.log(response);
       return { success: true };
     } catch (error) {

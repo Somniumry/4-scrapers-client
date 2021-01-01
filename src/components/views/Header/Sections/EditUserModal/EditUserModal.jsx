@@ -62,14 +62,17 @@ const UserInfoModal = ({ renderUserInfoModal, renderEditUserModal }) => {
     event.preventDefault();
     let reader = new FileReader();
     let file = event.target.files[0];
-    console.log(file);
-    reader.onloadend = () => {
-      setImageUpload({
-        file: file,
-        previewURL: reader.result,
-      });
-    };
-    file && reader.readAsDataURL(file);
+    if (file.size > 5242880) {
+      alert("5MB 이하의 이미지를 업로드 해주세요.");
+    } else {
+      reader.onloadend = () => {
+        setImageUpload({
+          file: file,
+          previewURL: reader.result,
+        });
+      };
+      file && reader.readAsDataURL(file);
+    }
   };
 
   return (

@@ -57,6 +57,7 @@ export const userEdit = async (userEditInfo, imgUrl) => {
 };
 
 export const userDelete = async (password) => {
+  console.log(password);
   const result = await user.userDelete(password);
 
   return { type: USER_DELETE, payload: result };

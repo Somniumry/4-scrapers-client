@@ -6,6 +6,7 @@ import {
   USER_SIGNOUT,
   USER_TOKEN,
   USER_EDIT,
+  USER_DELETE,
 } from "./types";
 
 const httpClient = axios.create({
@@ -53,4 +54,11 @@ export const userEdit = async (userEditInfo, imgUrl) => {
   const result = await user.userEdit(userEditInfo, imgUrl);
 
   return { type: USER_EDIT, payload: result };
+};
+
+export const userDelete = async (password) => {
+  console.log(password);
+  const result = await user.userDelete(password);
+
+  return { type: USER_DELETE, payload: result };
 };

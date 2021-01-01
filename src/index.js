@@ -1,5 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom";
+import { BrowserRouter } from "react-router-dom";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import News from "./service/news";
@@ -37,7 +38,9 @@ ReactDOM.render(
         window.__REDUX_DEVTOOLS_EXTENSION__()
     )}
   >
-    <App news={news} />
+    <BrowserRouter>
+      <App news={news} />
+    </BrowserRouter>
   </Provider>,
   document.getElementById("root")
 );

@@ -1,0 +1,25 @@
+.container {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  justify-content: center;
+  padding-left: 3rem;
+}
+
+.title {
+  font-weight: 600;
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+.message {
+  font-size: 1rem;
+  margin-bottom: 3rem;
+}
+
+.link:hover {
+  text-decoration: underline;
+  color: red;
+}

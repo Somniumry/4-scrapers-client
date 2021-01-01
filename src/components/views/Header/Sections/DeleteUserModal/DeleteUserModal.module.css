@@ -1,5 +1,4 @@
 @value makerLightGrey from "../../../../../common/colors.css";
-@value makerWhite from "../../../../../common/colors.css";
 @value makerRed from "../../../../../common/colors.css";
 @value S-CoreDream-Medium from "../../../../../common/fonts.css";
 @value S-CoreDream-ExtraBold from "../../../../../common/fonts.css";
@@ -26,10 +25,10 @@
   opacity: 0.6;
 }
 
-.editUser {
+.delete {
   width: 50rem;
   height: 31rem;
-  background-color: makerWhite;
+  background-color: white;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -57,67 +56,40 @@
   font-family: S-CoreDream-Medium;
 }
 
-.logo {
+.delete__logo {
   width: 3.7rem;
   margin-bottom: 0.9rem;
 }
 
-.title {
+.delete__title {
   font-size: 2.5rem;
   margin: 0;
   font-family: S-CoreDream-ExtraBold;
 }
 
-.content {
-  display: flex;
-  width: 77%;
-  margin-top: 1rem;
-}
-
-.imageInput {
-  display: none;
-}
-
-.imgBox {
+.message {
+  width: 100%;
+  height: 16rem;
+  margin-top: 0.7rem;
+  margin-bottom: 1.1rem;
+  background-color: makerLightGrey;
   display: flex;
   flex-direction: column;
-  align-items: center;
-}
-
-.userImage {
-  width: 9rem;
-  height: 9rem;
-  border-radius: 50%;
-}
-
-.change {
-  margin: 1rem;
-  width: 3rem;
-  height: 2rem;
-  border-radius: 20px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: makerLightGrey;
-  cursor: pointer;
-  font-family: S-CoreDream-Medium;
-  font-size: 0.9rem;
-}
-
-.userInfo {
-  width: 70%;
-  text-align: left;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 1.5rem 0 2.5rem 2.5rem;
   box-sizing: border-box;
-  margin-left: 3rem;
 }
 
-.userInfo__text {
+.message__warning {
+  margin: 0;
+  font-family: S-CoreDream-ExtraBold;
+  font-size: 1.15rem;
+}
+
+.message__text {
   font-family: S-CoreDream-Medium;
   font-size: 1rem;
-  margin-top: 0.7rem;
-  margin-bottom: 0.7rem;
-  padding-left: 0.5rem;
-  box-sizing: border-box;
 }
 
 .input {
@@ -174,14 +146,14 @@
   margin-top: 0.5rem;
 }
 
-.edit_btn_box {
-  width: 24rem;
+.delete__btn {
+  width: 23.5rem;
   display: flex;
   justify-content: space-between;
-  margin-top: 2rem;
+  margin-top: 0.9rem;
 }
 
-.edit_btn {
+.delete__btnDelete {
   width: 11rem;
   height: 2.5rem;
   border-radius: 5px;
@@ -196,7 +168,7 @@
   font-family: S-CoreDream-Medium;
 }
 
-.edit_btn:focus {
+.delete__btnDelete:focus {
   outline: none;
   border: none;
 }

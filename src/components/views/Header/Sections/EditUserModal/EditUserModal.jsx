@@ -62,14 +62,17 @@ const UserInfoModal = ({ renderUserInfoModal, renderEditUserModal }) => {
     event.preventDefault();
     let reader = new FileReader();
     let file = event.target.files[0];
-    console.log(file);
-    reader.onloadend = () => {
-      setImageUpload({
-        file: file,
-        previewURL: reader.result,
-      });
-    };
-    file && reader.readAsDataURL(file);
+    if (file.size > 5242880) {
+      alert("5MB 이하의 이미지를 업로드 해주세요.");
+    } else {
+      reader.onloadend = () => {
+        setImageUpload({
+          file: file,
+          previewURL: reader.result,
+        });
+      };
+      file && reader.readAsDataURL(file);
+    }
   };
 
   return (
@@ -87,7 +90,7 @@ const UserInfoModal = ({ renderUserInfoModal, renderEditUserModal }) => {
         <img src={logo} className={styles.logo} alt="logo" />
         <h2 className={styles.title}>User Profile</h2>
         <div className={styles.content}>
-          <div>
+          <div className={styles.imgBox}>
             <img
               className={styles.userImage}
               src={
@@ -102,7 +105,9 @@ const UserInfoModal = ({ renderUserInfoModal, renderEditUserModal }) => {
               name="img"
               onChange={onChangeImage}
             />
-            <div onClick={onButtonClick}>변경</div>
+            <div className={styles.change} onClick={onButtonClick}>
+              변경
+            </div>
           </div>
 
           <div className={styles.userInfo}>

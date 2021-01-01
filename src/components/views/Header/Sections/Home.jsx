@@ -4,8 +4,8 @@ import styles from "../Header.module.css";
 
 export default function Home() {
   return (
-    <div className={styles.left_menu_home}>
-      <Link to="/">홈</Link>
-    </div>
+    <Link className={styles.left_menu_home} to="/">
+      <div>홈</div>
+    </Link>
   );
 }

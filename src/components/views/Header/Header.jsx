@@ -15,6 +15,7 @@ import LoginModal from "./Sections/LoginModal/LoginModal";
 import RegisterModal from "./Sections/RegisterModal/RegisterModal";
 import UserInfoModal from "./Sections/UserInfoModal/UserInfoModal";
 import EditUserModal from "./Sections/EditUserModal/EditUserModal";
+import DeleteUserModal from "./Sections/DeleteUserModal/DeleteUserModal";
 
 export default function Header({ searchQuery }) {
   const dispatch = useDispatch();
@@ -24,6 +25,7 @@ export default function Header({ searchQuery }) {
   const [Register, setRegister] = useState(false);
   const [UserInformation, setUserInformation] = useState(false);
   const [EditUserForm, setEditUserForm] = useState(false);
+  const [DeleteUser, setDeleteUser] = useState(false);
 
   const renderLoginModal = () => {
     Login ? setLogin(false) : setLogin(true);
@@ -39,6 +41,10 @@ export default function Header({ searchQuery }) {
 
   const renderEditUserModal = () => {
     EditUserForm ? setEditUserForm(false) : setEditUserForm(true);
+  };
+
+  const renderDeleteUserModal = () => {
+    DeleteUser ? setDeleteUser(false) : setDeleteUser(true);
   };
 
   const changeHeaderButton = () => {
@@ -87,6 +93,7 @@ export default function Header({ searchQuery }) {
         <UserInfoModal
           renderUserInfoModal={renderUserInfoModal}
           renderEditUserModal={renderEditUserModal}
+          renderDeleteUserModal={renderDeleteUserModal}
         />
       )}
 
@@ -94,6 +101,13 @@ export default function Header({ searchQuery }) {
         <EditUserModal
           renderUserInfoModal={renderUserInfoModal}
           renderEditUserModal={renderEditUserModal}
+        />
+      )}
+      {DeleteUser && (
+        <DeleteUserModal
+          renderUserInfoModal={renderUserInfoModal}
+          renderDeleteUserModal={renderDeleteUserModal}
+          changeHeaderButton={changeHeaderButton}
         />
       )}
     </div>

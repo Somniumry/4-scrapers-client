@@ -61,18 +61,28 @@ class User {
       }
 
       if (userEditInfo.name || userEditInfo.password) {
-        const infoResponse = await this.user.patch("/user", userEditInfo);
-        console.log(infoResponse);
+        await this.user.patch("/user", userEditInfo);
       }
 
       if (imgFile) {
         const data = new FormData();
         data.append("img", imgFile);
-        const imgResponse = await this.user.post("/user/icon", data);
-
-        console.log(imgResponse);
+        await this.user.post("/user/icon", data);
       }
 
+      return { success: true };
+    } catch (error) {
+      return { success: false };
+    }
+  }
+
+  async userDelete(password) {
+    try {
+      console.log(password);
+      const response = await this.user.delete("/user", {
+        data: password,
+      });
+      console.log(response);
       return { success: true };
     } catch (error) {
       return { success: false };

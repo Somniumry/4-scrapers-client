@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import MainPage from "./components/views/MainPage/MainPage";
 import Header from "./components/views/Header/Header";
 import StoragePage from "./components/views/StoragePage/StoragePage";
+import NotFound from "./components/views/NotFound/NotFound";
 import "./App.css";
 
 import axios from "axios"; //useEffect 안에서 쓰기 위해 axios import 했습니다.
@@ -52,6 +53,9 @@ const App = ({ news }) => {
             scrollHandler={scrollHandler}
             scrolls={Scrolls}
           />
+        </Route>
+        <Route>
+          <NotFound />
         </Route>
       </Switch>
     </Router>

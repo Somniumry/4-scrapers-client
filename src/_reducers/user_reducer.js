@@ -4,6 +4,7 @@ import {
   USER_SIGNOUT,
   USER_TOKEN,
   USER_EDIT,
+  USER_DELETE,
 } from "../_actions/types";
 
 const userReducer = (state = {}, action) => {
@@ -29,6 +30,11 @@ const userReducer = (state = {}, action) => {
       return {
         ...state,
         edit: action.payload,
+      };
+    case USER_DELETE:
+      return {
+        ...state,
+        delete: action.payload,
       };
 
     default:

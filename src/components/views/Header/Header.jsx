@@ -1,6 +1,7 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useCallback } from "react";
+import { useHistory } from "react-router-dom";
 import { useDispatch } from "react-redux";
-import { userToken } from "../../../_actions/user_action";
+import { userToken, userGoogleLogin } from "../../../_actions/user_action";
 import styles from "./Header.module.css";
 
 import Logo from "./Sections/Logo";
@@ -19,6 +20,7 @@ import DeleteUserModal from "./Sections/DeleteUserModal/DeleteUserModal";
 
 export default function Header({ searchQuery }) {
   const dispatch = useDispatch();
+  const history = useHistory();
 
   const [LoginCompleted, setLoginCompleted] = useState(false);
   const [Login, setLogin] = useState(false);
@@ -51,15 +53,27 @@ export default function Header({ searchQuery }) {
     LoginCompleted ? setLoginCompleted(false) : setLoginCompleted(true);
   };
 
-  useEffect(() => {
-    dispatch(userToken()).then((result) => {
-      if (result.payload.success) {
+  const verifyLogin = useCallback(async () => {
+    const result = await dispatch(userToken());
+
+    if (result.payload.success) {
+      setLoginCompleted(true);
+    } else {
+      const google = await dispatch(userGoogleLogin());
+
+      if (google.payload.success) {
+        const token = google.payload.userData.accessToken;
+        localStorage.setItem("Authorization", token);
         setLoginCompleted(true);
-      } else {
-        setLoginCompleted(false);
+        await dispatch(userToken());
+        history.push("/");
       }
-    });
-  }, []);
+    }
+  }, [dispatch, history]);
+
+  useEffect(() => {
+    verifyLogin();
+  }, [verifyLogin]);
 
   return (
     <div className={styles.header}>

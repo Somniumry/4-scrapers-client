@@ -1,5 +1,6 @@
 import React from "react";
 import { useDispatch } from "react-redux";
+import qs from "qs";
 import styles from "./LoginModal.module.css";
 import logo from "../../../../../images/logo.png";
 import { useForm } from "react-hook-form";
@@ -31,6 +32,22 @@ const LoginModal = ({
     } else {
       alert("로그인에 실패했습니다.");
     }
+  };
+
+  const gmailLoginToken = () => {
+    const AUTHORIZE_URI = "https://accounts.google.com/o/oauth2/v2/auth";
+
+    const queryStr = qs.stringify({
+      client_id:
+        "511993709803-talqppmktd1756qbe6pebmnf6fnif2vm.apps.googleusercontent.com",
+      redirect_uri: "http://localhost:3000", //실제 deploy시에는 클라이언트 주소에 맞춰 수정해야 함
+      response_type: "code",
+      scope: "https://www.googleapis.com/auth/userinfo.email",
+      access_type: "offline",
+    });
+
+    const loginUrl = AUTHORIZE_URI + "?" + queryStr;
+    window.location.assign(loginUrl);
   };
 
   return (
@@ -95,24 +112,14 @@ const LoginModal = ({
           <button className={`${styles.loginBtn} ${styles.loginBtn__facebook}`}>
             Login with Facebook
           </button>
-          <button className={`${styles.loginBtn} ${styles.loginBtn__google}`}
-            onClick={     //리덕스로 어떻게 하는지 몰라서 일단 그냥 onClick 안에 함수 작성했습니다.
-              () => {     //구글에 로그인 정보 보내서 authorization code 받아오기
-                const qs = require('qs');
-                const AUTHORIZE_URI = "https://accounts.google.com/o/oauth2/v2/auth";
-
-                const queryStr = qs.stringify({
-                  client_id: "511993709803-talqppmktd1756qbe6pebmnf6fnif2vm.apps.googleusercontent.com",
-                  redirect_uri: "http://localhost:3000", //실제 deploy시에는 클라이언트 주소에 맞춰 수정해야 함
-                  response_type: "code",
-                  scope: "https://www.googleapis.com/auth/userinfo.email",
-                  access_type: "offline"
-                });
-
-                const loginUrl = AUTHORIZE_URI + "?" + queryStr;
-                window.location.assign(loginUrl)
-              }
-            }>
+          <button
+            className={`${styles.loginBtn} ${styles.loginBtn__google}`}
+            onClick={() => {
+              renderLoginModal();
+              gmailLoginToken();
+              return unregister(["email", "password"]);
+            }}
+          >
             Login with Google
           </button>
         </div>

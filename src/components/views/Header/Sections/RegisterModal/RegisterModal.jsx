@@ -7,14 +7,7 @@ import { userSignUp } from "../../../../../_actions/user_action";
 
 const RegisterModal = ({ renderRegisterModal }) => {
   const dispatch = useDispatch();
-  const {
-    register,
-    handleSubmit,
-    watch,
-    errors,
-    unregister,
-    getValues,
-  } = useForm();
+  const { register, handleSubmit, watch, errors, getValues } = useForm();
 
   const emailStyle = errors.email ? styles.errorInput : styles.input;
   const nickNameStyle = errors.name ? styles.errorInput : styles.input;
@@ -125,9 +118,6 @@ const RegisterModal = ({ renderRegisterModal }) => {
           className={styles.btnRegister}
           type="submit"
           value="계정 만들기"
-          // onClick={() => {
-          //   return unregister("password");
-          // }}
         />
       </form>
     </div>

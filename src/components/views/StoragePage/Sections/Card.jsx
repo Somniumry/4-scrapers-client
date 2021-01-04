@@ -47,7 +47,6 @@ const Card = ({
 
   const [Hover, setHover] = useState(false);
   const [Category, setCategory] = useState(10);
-  const [CategoryName, setCategoryName] = useState("");
 
   const onMouseEnterHandler = () => {
     setHover(true);
@@ -62,18 +61,18 @@ const Card = ({
     const categoryName = categoryList[categoryIndex];
     const categoryId = categoryHash[categoryName];
     setCategory(categoryId);
-    setCategoryName(categoryName);
+    // setCategoryName(categoryName);
   };
 
   const onScrapEditHandler = async () => {
-    if (category === CategoryName) {
+    if (category === Category) {
       alert("같은 카테고리로는 변경이 불가능합니다.");
       return;
     }
     const result = await news.editScrap({ id: id, category: Category });
 
     if (result.success) {
-      editHandler(id, CategoryName);
+      editHandler(id, Category);
       window.alert("카테고리가 성공적으로 변경되었습니다.");
     } else {
       window.alert("카테고리를 변경하는 데 실패했습니다.");
@@ -89,7 +88,6 @@ const Card = ({
     } else {
       window.alert("카테고리를 삭제하는 데 실패했습니다.");
     }
-    console.log(result);
   };
 
   const renderOptions = () => {

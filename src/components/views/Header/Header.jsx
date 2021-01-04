@@ -56,7 +56,11 @@ export default function Header({ searchQuery }) {
   };
 
   const changeHomeButton = () => {
-    HomeBtn ? setHomeBtn(false) : setHomeBtn(true);
+    setHomeBtn(true);
+  };
+
+  const changeScrapButton = () => {
+    setHomeBtn(false);
   };
 
   const verifyLogin = useCallback(async () => {
@@ -88,11 +92,14 @@ export default function Header({ searchQuery }) {
         <Scrap
           LoginCompleted={LoginCompleted}
           renderLoginModal={renderLoginModal}
-          changeHomeButton={changeHomeButton}
+          changeScrapButton={changeScrapButton}
           btnColor={HomeBtn}
         />
       </div>
-      <Searchbar searchQuery={searchQuery} />
+      <Searchbar
+        searchQuery={searchQuery}
+        changeHomeButton={changeHomeButton}
+      />
       <div className={styles.right_menu}>
         {LoginCompleted ? (
           <Logout changeHeaderButton={changeHeaderButton} />

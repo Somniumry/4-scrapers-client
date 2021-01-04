@@ -5,14 +5,14 @@ import styles from "../Header.module.css";
 export default function Scrap({
   LoginCompleted,
   renderLoginModal,
-  changeHomeButton,
+  changeScrapButton,
   btnColor,
 }) {
   return LoginCompleted ? (
     <Link
       className={`${styles.left_menu_scrap} ${!btnColor && styles.black}`}
       onClick={() => {
-        changeHomeButton();
+        changeScrapButton();
       }}
       to="/scrap"
     >

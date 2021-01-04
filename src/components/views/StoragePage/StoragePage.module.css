@@ -1,19 +1,76 @@
+@value makerWhite: white;
+@value makerWhiteHover: #ddd;
+@value makerHeaderDefaultBox: #eee;
+
+@value S-CoreDream-ExtraLight: S-CoreDream-2ExtraLight;
+@value S-CoreDream-Regular: S-CoreDream-4Regular;
+@value S-CoreDream-Medium: S-CoreDream-5Medium;
+
+
 .container {
     padding-top: 8rem;
-    display: grid;
-  }
+}
 
 .categoryList {
     width: 90%;
+    display: flex;
     margin: 0 auto;
-    background: forestgreen;
+    font-family: S-CoreDream-Medium;
 }
 
 .category {
     width: 100%;
     height: 70px;
     line-height: 70px;
-    background: green;
+    border-radius: 40px;
+    background: makerHeaderDefaultBox;
     text-align: center;
-    margin: 1.5rem;
+    margin: 1.2rem;
+    cursor: pointer;
+}
+
+.category:hover {
+    background: makerWhiteHover;
+}
+
+.scrapResult {
+    width: 95%;
+    height: 70px;
+    position: relative;
+    margin: 20px auto 0 ;
+    display: flex;
+}
+
+.totalNews {
+    width: 60%;
+    line-height: 60px;
+    font-family: S-CoreDream-Medium;
+}
+
+.searchInScrap {
+    width: 40%;
+}
+
+.view {
+    display: flex;
+    justify-content: center;
+  }
+  
+.gridContainer {
+    display: grid;
+    width: 100%;
+    height: 100%;
+    grid-template-columns: repeat(auto-fit, 232px);
+    grid-gap: 20px;
+    justify-content: center;
+    align-items: center;
+}
+
+.noData {
+    height: 100%;
+    font-family: S-CoreDream-Regular;
+    font-size: 1.5rem;
+    margin-top: 130px;
+    text-align: center;
+    /* opacity: 0.5; */
 }

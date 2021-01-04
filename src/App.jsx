@@ -44,7 +44,12 @@ const App = ({ news }) => {
       <Header searchQuery={searchQuery} />
       <Switch>
         <Route path="/scrap">
-          <StoragePage />
+          <StoragePage 
+            news={news}
+            search={Search}
+            scrollHandler={scrollHandler}
+            scrolls={Scrolls}
+            />
         </Route>
         <Route path="/" exact>
           <MainPage

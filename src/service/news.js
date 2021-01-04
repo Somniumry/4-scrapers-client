@@ -26,6 +26,18 @@ class News {
       return { success: false };
     }
   }
+
+  async renderNewsInScrap(query, scrolls) {
+    try {
+      const response = await this.news.post("/search/scrap", {
+        q: query,
+        scrolls: scrolls,
+      });
+      return { data: response.data.data, success: true };
+    } catch (error) {
+      return { data: [], success: false };
+    }
+  }
 }
 
 export default News;

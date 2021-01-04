@@ -23,13 +23,8 @@ const App = ({ news }) => {
     <Router>
       <Header searchQuery={searchQuery} />
       <Switch>
-        <Route path="/scrap">
-          <StoragePage 
-            news={news}
-            search={Search}
-            scrollHandler={scrollHandler}
-            scrolls={Scrolls}
-            />
+        <Route path="/scrap" exact>
+          <StoragePage news={news} />
         </Route>
         <Route path="/" exact>
           <MainPage

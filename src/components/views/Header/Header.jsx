@@ -55,7 +55,6 @@ export default function Header({ searchQuery }) {
 
   const verifyLogin = useCallback(async () => {
     const result = await dispatch(userToken());
-
     if (result.payload.success) {
       setLoginCompleted(true);
     } else {
@@ -80,7 +79,10 @@ export default function Header({ searchQuery }) {
       <Logo />
       <div className={styles.left_menu}>
         <Home />
-        <Scrap />
+        <Scrap
+          LoginCompleted={LoginCompleted}
+          renderLoginModal={renderLoginModal}
+        />
       </div>
       <Searchbar searchQuery={searchQuery} />
       <div className={styles.right_menu}>

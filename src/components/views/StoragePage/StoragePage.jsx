@@ -19,13 +19,27 @@ const categoryList = [
   "기타",
 ];
 
+const categoryHash = {
+  "카테고리 선택하기": 10,
+  정치: 1,
+  경제: 2,
+  연예: 3,
+  스포츠: 4,
+  사회: 5,
+  "생활/문화": 6,
+  세계: 7,
+  "IT/과학": 8,
+  기타: 9,
+};
+
 export default function StoragePage({ news }) {
   const dispatch = useDispatch();
 
   const [NewsList, setNewsList] = useState([]);
   const [Page, setPage] = useState(1);
   const [Search, setSearch] = useState("");
-  const [Category, setCategory] = useState("전체");
+  const [Category, setCategory] = useState(10);
+  const [CategoryName, setCategoryName] = useState("전체");
   const [Length, setLength] = useState(0);
   const [Filter, setFilter] = useState([]);
 
@@ -39,7 +53,7 @@ export default function StoragePage({ news }) {
           setNewsList(newsDatas.data);
           setFilter(newsDatas.data);
           setLength(newsDatas.data.length);
-          setCategory("전체");
+          setCategory(10);
           window.scrollTo(0, 0);
         } else {
           if (!newsDatas.data.length) {
@@ -49,7 +63,7 @@ export default function StoragePage({ news }) {
 
           setNewsList((News) => [...News, ...newsDatas.data]);
 
-          if (Category === "전체") {
+          if (Category === 10) {
             setFilter((News) => {
               setLength([...News, ...newsDatas.data].length);
               return [...News, ...newsDatas.data];
@@ -88,12 +102,13 @@ export default function StoragePage({ news }) {
     const deleteNewsList = NewsList.filter((news) => news.id !== id);
     const deleteFilter = Filter.filter((news) => news.id !== id);
 
+    setLength(Length - 1);
     setNewsList(deleteNewsList);
     setFilter(deleteFilter);
   };
 
   const editHandler = (id, category) => {
-    if (Category === "전체") {
+    if (Category === 10) {
       const editNewsList = NewsList.map((news) => {
         if (news.id === id) {
           news.category = category;
@@ -117,7 +132,7 @@ export default function StoragePage({ news }) {
         return news;
       });
       const editFilter = Filter.filter((news) => news.id !== id);
-
+      setLength(Length - 1);
       setNewsList(editNewsList);
       setFilter(editFilter);
     }
@@ -129,13 +144,20 @@ export default function StoragePage({ news }) {
   };
 
   const clickCategory = (item) => {
-    setCategory(item);
+    let categoryID;
+    if (item === "전체") {
+      categoryID = 10;
+    } else {
+      categoryID = categoryHash[item];
+    }
+    setCategoryName(item);
+    setCategory(categoryID);
 
     const filterNews = NewsList.filter((news) => {
-      if (item === "전체") {
+      if (categoryID === 10) {
         return true;
       } else {
-        return news.category === item;
+        return news.category === categoryID;
       }
     });
 
@@ -161,7 +183,7 @@ export default function StoragePage({ news }) {
 
       <div className={styles.scrapResult}>
         <span className={styles.totalNews}>
-          총 {Category} {Length}개가 검색되었습니다.
+          총 {CategoryName} {Length}개가 검색되었습니다.
         </span>
         <Searchbar className={styles.searchInScrap} searchQuery={searchQuery} />
       </div>

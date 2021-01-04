@@ -43,7 +43,7 @@ const Card = ({
 
   const [Hover, setHover] = useState(false);
   const [Scrap, setScrap] = useState(false);
-  const [Category, setCategory] = useState("");
+  const [Category, setCategory] = useState(10);
 
   const onMouseEnterHandler = () => {
     setHover(true);

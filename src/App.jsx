@@ -1,5 +1,10 @@
 import React, { useState } from "react";
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  useLocation,
+} from "react-router-dom";
 import MainPage from "./components/views/MainPage/MainPage";
 import Header from "./components/views/Header/Header";
 import StoragePage from "./components/views/StoragePage/StoragePage";

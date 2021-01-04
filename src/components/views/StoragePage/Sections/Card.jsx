@@ -1,15 +1,19 @@
 import React, { useState } from "react";
 import styles from "./Card.module.css";
-import deleteImg from "../../../../images/delete-24px-white.png"; 
+import deleteImg from "../../../../images/delete-24px-white.png";
 
 const Card = ({
   news,
+  deleteHandler,
+  editHandler,
+  id,
   title,
   description,
   imageURL,
   url,
   provider,
   datePublished,
+  category,
 }) => {
   const categoryList = [
     "카테고리 선택하기",
@@ -23,13 +27,11 @@ const Card = ({
     "IT/과학",
     "기타",
   ];
-
   const deleteMSN = provider.match(/ on MSN.com/);
   provider = deleteMSN ? provider.slice(0, deleteMSN.index) : provider;
   const longPublisher = provider.length > 10 && styles.long__publisher;
 
   const [Hover, setHover] = useState(false);
-  const [Scrap, setScrap] = useState(false);
   const [Category, setCategory] = useState("");
 
   const onMouseEnterHandler = () => {
@@ -46,8 +48,33 @@ const Card = ({
     setCategory(categoryName);
   };
 
-  const onScrapEditHandler = () => {
-    console.log('카테고리 변경');
+  const onScrapEditHandler = async () => {
+    console.log("카테고리 변경");
+    if (category === Category) {
+      alert("같은 카테고리로는 변경이 불가능합니다.");
+      return;
+    }
+    const result = await news.editScrap({ id: id, category: Category });
+
+    if (result.success) {
+      editHandler(id, Category);
+      window.alert("카테고리가 성공적으로 변경되었습니다.");
+    } else {
+      window.alert("카테고리를 변경하는 데 실패했습니다.");
+    }
+    console.log(result);
+  };
+
+  const onDeleteNewsHandler = async () => {
+    const result = await news.deleteScrap({ id });
+
+    if (result.success) {
+      deleteHandler(id);
+      window.alert("카테고리가 성공적으로 삭제되었습니다.");
+    } else {
+      window.alert("카테고리를 삭제하는 데 실패했습니다.");
+    }
+    console.log(result);
   };
 
   const renderOptions = () => {
@@ -65,10 +92,8 @@ const Card = ({
       onMouseEnter={onMouseEnterHandler}
       onMouseLeave={onMouseLeaveHandler}
     >
-      {!Hover && !Scrap && (
-        <div className={styles.title}>{title.slice(0, 28)}...</div>
-      )}
-      {Hover && !Scrap && (
+      {!Hover && <div className={styles.title}>{title.slice(0, 28)}...</div>}
+      {Hover && (
         <div className={styles.hcontainer}>
           <div className={styles.background}></div>
           <div className={styles.hover}>
@@ -85,13 +110,22 @@ const Card = ({
             <div className={styles.hover__text}>
               {description.slice(0, 120)}...
             </div>
-            
-              <div className={`${styles.hover__publisher} ${longPublisher}`}>
-                <a href={url} target="_blank" rel="noreferrer">
-                  <div className={styles.publisher_text}>{provider} 기사 보러가기</div>
-                </a>
-                <span className={styles.deleteButton}><img src={deleteImg} width="20px"/></span>
-              </div>
+
+            <div className={`${styles.hover__publisher} ${longPublisher}`}>
+              <a href={url} target="_blank" rel="noreferrer">
+                <div className={styles.publisher_text}>
+                  {provider} 기사 보러가기
+                </div>
+              </a>
+              <span className={styles.deleteButton}>
+                <img
+                  src={deleteImg}
+                  width="20px"
+                  onClick={onDeleteNewsHandler}
+                  alt="delete"
+                />
+              </span>
+            </div>
           </div>
         </div>
       )}

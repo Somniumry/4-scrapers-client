@@ -93,16 +93,34 @@ export default function StoragePage({ news }) {
   };
 
   const editHandler = (id, category) => {
-    const editNewsList = NewsList.map((news) => {
-      if (news.id === id) {
-        news.category = category;
-      }
-      return news;
-    });
-    const editFilter = Filter.filter((news) => news.id !== id);
+    if (Category === "전체") {
+      const editNewsList = NewsList.map((news) => {
+        if (news.id === id) {
+          news.category = category;
+        }
+        return news;
+      });
+      const editFilter = Filter.map((news) => {
+        if (news.id === id) {
+          news.category = category;
+        }
+        return news;
+      });
 
-    setNewsList(editNewsList);
-    setFilter(editFilter);
+      setNewsList(editNewsList);
+      setFilter(editFilter);
+    } else {
+      const editNewsList = NewsList.map((news) => {
+        if (news.id === id) {
+          news.category = category;
+        }
+        return news;
+      });
+      const editFilter = Filter.filter((news) => news.id !== id);
+
+      setNewsList(editNewsList);
+      setFilter(editFilter);
+    }
   };
 
   const searchQuery = (query) => {

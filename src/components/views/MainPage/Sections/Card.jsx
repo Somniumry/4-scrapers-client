@@ -24,6 +24,19 @@ const Card = ({
     "기타",
   ];
 
+  const categoryHash = {
+    "카테고리 선택하기": 10,
+    정치: 1,
+    경제: 2,
+    연예: 3,
+    스포츠: 4,
+    사회: 5,
+    "생활/문화": 6,
+    세계: 7,
+    "IT/과학": 8,
+    기타: 9,
+  };
+
   const deleteMSN = provider.match(/ on MSN.com/);
   provider = deleteMSN ? provider.slice(0, deleteMSN.index) : provider;
   const longPublisher = provider.length > 10 && styles.long__publisher;
@@ -43,7 +56,8 @@ const Card = ({
   const selectCategory = (event) => {
     const categoryIndex = event.target.options.selectedIndex;
     const categoryName = categoryList[categoryIndex];
-    setCategory(categoryName);
+    const categoryId = categoryHash[categoryName];
+    setCategory(categoryId);
   };
 
   const onScrapHandler = () => {

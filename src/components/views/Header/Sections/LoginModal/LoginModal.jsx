@@ -40,7 +40,7 @@ const LoginModal = ({
     const queryStr = qs.stringify({
       client_id:
         "511993709803-talqppmktd1756qbe6pebmnf6fnif2vm.apps.googleusercontent.com",
-      redirect_uri: "http://4-scrapers.s3-website.ap-northeast-2.amazonaws.com", //실제 deploy시에는 클라이언트 주소에 맞춰 수정해야 함
+      redirect_uri: "http://scrap.ml", //실제 deploy시에는 클라이언트 주소에 맞춰 수정해야 함
       response_type: "code",
       scope: "https://www.googleapis.com/auth/userinfo.email",
       access_type: "offline",
@@ -109,9 +109,9 @@ const LoginModal = ({
           </button>
         </div>
         <div className={styles.login__SNSbtn}>
-          <button className={`${styles.loginBtn} ${styles.loginBtn__facebook}`}>
+          {/* <button className={`${styles.loginBtn} ${styles.loginBtn__facebook}`}>
             Login with Facebook
-          </button>
+          </button> */}
           <button
             className={`${styles.loginBtn} ${styles.loginBtn__google}`}
             onClick={() => {

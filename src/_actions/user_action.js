@@ -7,6 +7,7 @@ import {
   USER_TOKEN,
   USER_EDIT,
   USER_DELETE,
+  USER_GOOGLE,
 } from "./types";
 
 const httpClient = axios.create({
@@ -40,25 +41,25 @@ export const userSignUp = async (userRegisterInfo) => {
 
 export const userLogout = async () => {
   const result = await user.userLogout();
-
   return { type: USER_SIGNOUT, payload: result };
 };
 
 export const userToken = async () => {
   const result = await user.userToken();
-
   return { type: USER_TOKEN, payload: result };
 };
 
 export const userEdit = async (userEditInfo, imgUrl) => {
   const result = await user.userEdit(userEditInfo, imgUrl);
-
   return { type: USER_EDIT, payload: result };
 };
 
 export const userDelete = async (password) => {
-  console.log(password);
   const result = await user.userDelete(password);
-
   return { type: USER_DELETE, payload: result };
+};
+
+export const userGoogleLogin = async () => {
+  const result = await user.userGoogleLogin();
+  return { type: USER_GOOGLE, payload: result };
 };

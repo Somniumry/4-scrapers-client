@@ -5,6 +5,7 @@ import {
   USER_TOKEN,
   USER_EDIT,
   USER_DELETE,
+  USER_GOOGLE,
 } from "../_actions/types";
 
 const userReducer = (state = {}, action) => {
@@ -35,6 +36,11 @@ const userReducer = (state = {}, action) => {
       return {
         ...state,
         delete: action.payload,
+      };
+    case USER_GOOGLE:
+      return {
+        ...state,
+        user: action.payload,
       };
 
     default:

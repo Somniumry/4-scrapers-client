@@ -19,9 +19,7 @@ const DeleteUserModal = ({
 
   const onSubmit = async (deleteData, event) => {
     event.preventDefault();
-    console.log(deleteData);
     const result = await dispatch(userDelete(deleteData));
-    console.log(result);
     if (result.payload.success) {
       window.alert("성공적으로 계정이 삭제되었습니다.");
       localStorage.removeItem("Authorization");

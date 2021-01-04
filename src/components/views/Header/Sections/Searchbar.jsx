@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import styles from "./Searchbar.module.css";
 import searchImg from "../../../../images/search-24px.svg";
 
@@ -25,7 +25,12 @@ export default function Searchbar({ searchQuery }) {
         onKeyPress={searchPressHandler}
       />
       <span>
-        <img src={searchImg} width="30px" onClick={searchClickHandler} />
+        <img
+          src={searchImg}
+          alt="search"
+          width="30px"
+          onClick={searchClickHandler}
+        />
       </span>
     </div>
   );

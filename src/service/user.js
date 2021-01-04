@@ -78,12 +78,31 @@ class User {
 
   async userDelete(password) {
     try {
-      console.log(password);
-      const response = await this.user.delete("/user", {
+      await this.user.delete("/user", {
         data: password,
       });
-      console.log(response);
       return { success: true };
+    } catch (error) {
+      return { success: false };
+    }
+  }
+
+  async userGoogleLogin() {
+    try {
+      const url = new URL(window.location.href);
+      const authorizationCode = url.searchParams.get("code");
+      const token = localStorage.getItem("Authorization");
+
+      if (token || !authorizationCode) throw Error();
+
+      const response = (
+        await this.user.post(
+          "http://ec2-54-180-54-2.ap-northeast-2.compute.amazonaws.com:5000/auth/google/callback",
+          { authorizationCode }
+        )
+      ).data;
+
+      return { userData: response, success: true };
     } catch (error) {
       return { success: false };
     }

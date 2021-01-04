@@ -152,6 +152,15 @@ a {
   background: makerWhiteHover;
 }
 
+.black {
+  background: makerBlack;
+  color: white;
+}
+
+.black:hover {
+  background: makerBlack;
+  color: white;
+}
 /* 
 @media screen and (max-width: 560px) {
     body {

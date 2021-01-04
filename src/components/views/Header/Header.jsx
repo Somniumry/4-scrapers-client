@@ -22,6 +22,8 @@ export default function Header({ searchQuery }) {
   const dispatch = useDispatch();
   const history = useHistory();
 
+  const [HomeBtn, setHomeBtn] = useState(true);
+
   const [LoginCompleted, setLoginCompleted] = useState(false);
   const [Login, setLogin] = useState(false);
   const [Register, setRegister] = useState(false);
@@ -53,6 +55,10 @@ export default function Header({ searchQuery }) {
     LoginCompleted ? setLoginCompleted(false) : setLoginCompleted(true);
   };
 
+  const changeHomeButton = () => {
+    HomeBtn ? setHomeBtn(false) : setHomeBtn(true);
+  };
+
   const verifyLogin = useCallback(async () => {
     const result = await dispatch(userToken());
     if (result.payload.success) {
@@ -78,10 +84,12 @@ export default function Header({ searchQuery }) {
     <div className={styles.header}>
       <Logo />
       <div className={styles.left_menu}>
-        <Home />
+        <Home changeHomeButton={changeHomeButton} btnColor={HomeBtn} />
         <Scrap
           LoginCompleted={LoginCompleted}
           renderLoginModal={renderLoginModal}
+          changeHomeButton={changeHomeButton}
+          btnColor={HomeBtn}
         />
       </div>
       <Searchbar searchQuery={searchQuery} />

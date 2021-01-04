@@ -27,12 +27,27 @@ const Card = ({
     "IT/과학",
     "기타",
   ];
+
+  const categoryHash = {
+    "카테고리 선택하기": 10,
+    정치: 1,
+    경제: 2,
+    연예: 3,
+    스포츠: 4,
+    사회: 5,
+    "생활/문화": 6,
+    세계: 7,
+    "IT/과학": 8,
+    기타: 9,
+  };
+
   const deleteMSN = provider.match(/ on MSN.com/);
   provider = deleteMSN ? provider.slice(0, deleteMSN.index) : provider;
   const longPublisher = provider.length > 10 && styles.long__publisher;
 
   const [Hover, setHover] = useState(false);
-  const [Category, setCategory] = useState("");
+  const [Category, setCategory] = useState(10);
+  const [CategoryName, setCategoryName] = useState("");
 
   const onMouseEnterHandler = () => {
     setHover(true);
@@ -45,24 +60,24 @@ const Card = ({
   const selectCategory = (event) => {
     const categoryIndex = event.target.options.selectedIndex;
     const categoryName = categoryList[categoryIndex];
-    setCategory(categoryName);
+    const categoryId = categoryHash[categoryName];
+    setCategory(categoryId);
+    setCategoryName(categoryName);
   };
 
   const onScrapEditHandler = async () => {
-    console.log("카테고리 변경");
-    if (category === Category) {
+    if (category === CategoryName) {
       alert("같은 카테고리로는 변경이 불가능합니다.");
       return;
     }
     const result = await news.editScrap({ id: id, category: Category });
 
     if (result.success) {
-      editHandler(id, Category);
+      editHandler(id, CategoryName);
       window.alert("카테고리가 성공적으로 변경되었습니다.");
     } else {
       window.alert("카테고리를 변경하는 데 실패했습니다.");
     }
-    console.log(result);
   };
 
   const onDeleteNewsHandler = async () => {

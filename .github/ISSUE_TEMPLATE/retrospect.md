@@ -7,7 +7,6 @@ assignees: ''
 
 ---
 
-Template Content
 # 이름
 
 ### Fact (사실) : 주요 사건에서 내가 취한 행동을 객관적으로 서술한다

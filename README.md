@@ -169,3 +169,22 @@
 ### 서비스 플로우 차트[요약 버전] 
 [To See Full Version | Click!](https://miro.com/app/board/o9J_lZh1Cj8=/)    
 <img src="https://user-images.githubusercontent.com/67185299/103614921-fc20c380-4f6c-11eb-9e78-3451b6933c72.jpg" width="1000"></img>
+
+### 스크래퍼 페이지 뷰
+- Main & Scrap Page  
+  
+<img src="https://user-images.githubusercontent.com/67185299/103616516-ee207200-4f6f-11eb-9a4d-79ef74140ccb.gif" width="1000"></img>
+<br>
+<br>
+
+- Save News  
+  
+<img src="https://user-images.githubusercontent.com/67185299/103616961-b49c3680-4f70-11eb-82b9-8856ab021859.gif" width="1000"></img>
+<br>
+<br>
+
+- Filtering News by Category
+  
+<img src="https://user-images.githubusercontent.com/67185299/103617149-1066bf80-4f71-11eb-8a39-f7106c016b97.gif" width="1000"></img>
+<br>
+<br>

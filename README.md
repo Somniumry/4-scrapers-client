@@ -9,7 +9,7 @@
 내가 관심있는 뉴스, 간직하고 싶은 뉴스를 하나하나 오려 스크랩✂️하던  
 그 때의 기분을 다시 느껴보고 싶다면 저희와 함께 스크래퍼가 되어보세요!  
 [go to scraper page | our result💻](http://scrap.ml/)  
-[go to github wiki | our record✍🏻](http://scrap.ml/)
+[go to github wiki | our record✍🏻](https://github.com/codestates/4-scrapers-client/wiki)
 <br>
 <br>
 

@@ -161,3 +161,7 @@
 </div>
 </details>
 <br>
+
+### 프로젝트에서 사용한 스택  
+<br>
+<img src="https://user-images.githubusercontent.com/67185299/103609175-9fb7a700-4f60-11eb-8aa5-9b45f1bbff98.png" width="1000"></img>

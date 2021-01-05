@@ -168,7 +168,7 @@
 
 ### 서비스 플로우 차트[요약 버전] 
 [To See Full Version | Click!](https://miro.com/app/board/o9J_lZh1Cj8=/)    
-<img src="https://user-images.githubusercontent.com/67185299/103614921-fc20c380-4f6c-11eb-9e78-3451b6933c72.jpg" width="1000"></img>
+<img src="https://user-images.githubusercontent.com/67185299/103628303-2761dd80-4f82-11eb-8aa5-43c04d222af2.jpg" width="1000"></img>
 
 ### 스크래퍼 주요 페이지 뷰
 - Main & Scrap Page  

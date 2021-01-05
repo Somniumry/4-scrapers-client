@@ -131,7 +131,7 @@
 
 - **Role** : Team Leader  
 - **Position** : Front-end
-- **Stack** : React, React Hooks, Redux, Postcss, Javascript, HTML, AWS S3
+- **Stack** : React, React Hooks, Redux, Postcss, Javascript, HTML, AWS S3, AWS Route53
 - **Works** :  
   1. Wireframe 설계 및 문서 작성 
       - Component들을 도형으로 구조화하여 가상의 화면에 배치

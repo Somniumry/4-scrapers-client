@@ -167,5 +167,5 @@
 <img src="https://user-images.githubusercontent.com/67185299/103609175-9fb7a700-4f60-11eb-8aa5-9b45f1bbff98.png" width="1000"></img>
 
 ### 서비스 플로우 차트[요약 버전] 
-[To See Full Version | Click!](https://miro.com/app/board/o9J_la0saIo=/)    
+[To See Full Version | Click!](https://miro.com/app/board/o9J_lZh1Cj8=/)    
 <img src="https://user-images.githubusercontent.com/67185299/103614921-fc20c380-4f6c-11eb-9e78-3451b6933c72.jpg" width="1000"></img>

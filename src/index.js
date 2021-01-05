@@ -14,6 +14,7 @@ import ReduxThunk from "redux-thunk";
 
 const httpClient = axios.create({
   baseURL: "http://ec2-54-180-54-2.ap-northeast-2.compute.amazonaws.com:5000",
+  withCredentials: true
 });
 
 httpClient.interceptors.request.use(function (config) {

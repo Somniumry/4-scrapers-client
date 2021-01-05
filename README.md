@@ -170,7 +170,7 @@
 [To See Full Version | Click!](https://miro.com/app/board/o9J_lZh1Cj8=/)    
 <img src="https://user-images.githubusercontent.com/67185299/103614921-fc20c380-4f6c-11eb-9e78-3451b6933c72.jpg" width="1000"></img>
 
-### 스크래퍼 페이지 뷰
+### 스크래퍼 주요 페이지 뷰
 - Main & Scrap Page  
   
 <img src="https://user-images.githubusercontent.com/67185299/103616516-ee207200-4f6f-11eb-9a4d-79ef74140ccb.gif" width="1000"></img>

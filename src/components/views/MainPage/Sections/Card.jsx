@@ -54,9 +54,9 @@ const Card = ({
   };
 
   const selectCategory = (event) => {
-    const categoryIndex = event.target.options.selectedIndex;
-    const categoryName = categoryList[categoryIndex];
-    const categoryId = categoryHash[categoryName];
+    //const categoryIndex = event.target.selectedIndex;
+    //const categoryName = categoryList[categoryIndex];
+    const categoryId = categoryHash[event.target.value];
     setCategory(categoryId);
   };
 
@@ -94,7 +94,7 @@ const Card = ({
   return (
     <div
       className={styles.container}
-      style={{ backgroundImage: `url(${imageURL})` }}
+      style={{ backgroundImage: `url(${imageURL})`, backgroundPosition: 'center' }}
       onMouseEnter={onMouseEnterHandler}
       onMouseLeave={onMouseLeaveHandler}
     >
@@ -108,11 +108,11 @@ const Card = ({
             <div className={styles.hover__category}>
               <select
                 className={styles.hover__category_opt}
-                onClick={selectCategory}
+                onChange={selectCategory}
               >
                 {renderOptions()}
               </select>
-              <div onClick={onScrapHandler}>저장</div>
+              <div onClick={onScrapHandler} >저장</div>
             </div>
             <div className={styles.hover__title}>{title.slice(0, 30)}...</div>
             <div className={styles.hover__text}>

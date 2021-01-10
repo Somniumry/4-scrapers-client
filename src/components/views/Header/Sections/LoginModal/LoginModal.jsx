@@ -40,7 +40,7 @@ const LoginModal = ({
     const queryStr = qs.stringify({
       client_id:
         "511993709803-talqppmktd1756qbe6pebmnf6fnif2vm.apps.googleusercontent.com",
-      redirect_uri: "http://scrap.ml", //실제 deploy시에는 클라이언트 주소에 맞춰 수정해야 함
+      redirect_uri: "https://scraper.ga", // "http://scrap.ml", //실제 deploy시에는 클라이언트 주소에 맞춰 수정해야 함
       response_type: "code",
       scope: "https://www.googleapis.com/auth/userinfo.email",
       access_type: "offline",

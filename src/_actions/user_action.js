@@ -11,7 +11,14 @@ import {
 } from "./types";
 
 const httpClient = axios.create({
-  baseURL: "http://ec2-54-180-54-2.ap-northeast-2.compute.amazonaws.com:5000",
+  withCredentials : true,
+  baseURL: "https://scraper.ga:8080",
+  responseType: 'json',
+  timeout: 10000,
+  headers: {
+    'X-Requested-With': 'XMLHttpRequest',
+    'Content-Type': 'application/json'
+  }
 });
 
 httpClient.interceptors.request.use(function (config) {

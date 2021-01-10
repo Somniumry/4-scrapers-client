@@ -46,6 +46,7 @@ class User {
         success: true,
       };
     } catch (error) {
+      localStorage.removeItem("Authorization");
       return { success: false };
     }
   }
@@ -97,7 +98,7 @@ class User {
 
       const response = (
         await this.user.post(
-          "http://ec2-54-180-54-2.ap-northeast-2.compute.amazonaws.com:5000/auth/google/callback",
+          "https://scraper.ga:8080/auth/google/callback",
           { authorizationCode }
         )
       ).data;

@@ -57,9 +57,9 @@ const Card = ({
   };
 
   const selectCategory = (event) => {
-    const categoryIndex = event.target.options.selectedIndex;
-    const categoryName = categoryList[categoryIndex];
-    const categoryId = categoryHash[categoryName];
+    // const categoryIndex = event.target.options.selectedIndex;
+    // const categoryName = categoryList[categoryIndex];
+    const categoryId = categoryHash[event.target.value];
     setCategory(categoryId);
     // setCategoryName(categoryName);
   };
@@ -84,9 +84,9 @@ const Card = ({
 
     if (result.success) {
       deleteHandler(id);
-      window.alert("카테고리가 성공적으로 삭제되었습니다.");
+      window.alert("스크랩이 성공적으로 삭제되었습니다.");
     } else {
-      window.alert("카테고리를 삭제하는 데 실패했습니다.");
+      window.alert("스크랩을 삭제하는 데 실패했습니다.");
     }
   };
 
@@ -101,7 +101,7 @@ const Card = ({
   return (
     <div
       className={styles.container}
-      style={{ backgroundImage: `url(${imageURL})` }}
+      style={{ backgroundImage: `url(${imageURL})` , backgroundPosition: 'center'}}
       onMouseEnter={onMouseEnterHandler}
       onMouseLeave={onMouseLeaveHandler}
     >
@@ -113,7 +113,7 @@ const Card = ({
             <div className={styles.hover__category}>
               <select
                 className={styles.hover__category_opt}
-                onClick={selectCategory}
+                onChange={selectCategory}
               >
                 {renderOptions()}
               </select>
